@@ -1,0 +1,175 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 2
+# Total Networks: 2
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
+#    └─ Interface: iface1, Binding: fabnetv4, IPv4: 
+#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.200/24, IPv6: 2001:db8:1234:1::200/64
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_ConnectX_5)
+#    └─ Interface: iface1, Binding: fabnetv4, IPv4: 
+#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.201/24, IPv6: 2001:db8:1234:1::201/64
+#  ├─ OpenStack Roles: control, network, storage
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 net_local_1
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:1::/64
+#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:1::1
+#    Connected Nodes: 2
+#
+# 📡 fabnetv4
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net_local_1
+#    └── lc-1  (192.168.201.200/24)
+#    └── lc-2  (192.168.201.201/24)
+#
+# Network: fabnetv4
+#    └── lc-1  (N/A)
+#    └── lc-2  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: PSC               
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1        # Logical name on the slice
+            model: NIC_ConnectX_7_100
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4   
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth2           
+                connection: conn-eth2  
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.200/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::200/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network: {}
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+    node2:
+      name: lc-2
+      hostname: lc-2
+      site: PSC               
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1        # Logical name on the slice
+            model: NIC_ConnectX_5
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4   
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth2           
+                connection: conn-eth2  
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.201/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::201/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+    net2:
+      name: fabnetv4
+      type: IPv4
+      subnet: {}
+

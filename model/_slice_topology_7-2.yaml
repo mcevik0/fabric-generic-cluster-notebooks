@@ -1,0 +1,129 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 2
+# Total Networks: 1
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: fabnetv6, IPv4: 
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: fabnetv6, IPv4: 
+#  ├─ OpenStack Roles: control, network, storage
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 fabnetv6
+#    Type: IPv6
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: fabnetv6
+#    └── lc-1  (N/A)
+#    └── lc-2  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: SRI               
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv6
+                ipv4: {} 
+                ipv6: {} 
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+
+    node2:
+      name: lc-2              
+      hostname: lc-2          
+      site: SRI               
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: fabnetv6
+      type: IPv6
+      subnet: {}

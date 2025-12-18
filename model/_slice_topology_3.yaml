@@ -1,0 +1,203 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 2
+# Total Networks: 2
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.211/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.211/24
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.212/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.212/24
+#  ├─ OpenStack Roles: control, network, storage
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 net_local_1
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.201.0/24
+#    Gateway: IPv4: 192.168.201.1
+#    Connected Nodes: 2
+#
+# 📡 net_local_2
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.202.0/24
+#    Gateway: IPv4: 192.168.202.1
+#    Connected Nodes: 2
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net_local_1
+#    └── lc-1  (192.168.201.211/24)
+#    └── lc-2  (192.168.201.212/24)
+#
+# Network: net_local_2
+#    └── lc-1  (192.168.202.211/24)
+#    └── lc-2  (192.168.202.212/24)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: SRI               
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.211/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.211/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+
+    node2:
+      name: lc-2              
+      hostname: lc-2          
+      site: SRI               
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.212/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.212/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net2:
+      name: net_local_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
+        ipv6:
+          address: ''
+          gateway: ''

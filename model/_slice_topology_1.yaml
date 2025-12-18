@@ -1,0 +1,467 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 3
+# Total Networks: 2
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 32 GB
+#      • Disk: 100 GB
+#      • Persistent Storage: {FABRIC_Staff_1T: 1000GB}
+#  ├─ GPUs:
+#    └─ rtx6000 (GPU_RTX6000)
+#  ├─ FPGA: fpga1 (FPGA_Xilinx_U280)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 
+#    └─ Interface: iface2, Binding: net_local_2, IPv4: 
+#  ├─ NVMe Storage:
+#    └─ nvme1 (NVME_P4510)
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.200/24
+#    └─ Interface: iface2, Binding: , IPv4: 
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.211/24
+#  ├─ NIC: nic2 (NIC_ConnectX_6)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.211/24
+#    └─ Interface: iface2, Binding: , IPv4: 
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 2 vCPU
+#      • RAM: 8 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.212/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-3
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 2 vCPU
+#      • RAM: 8 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ OpenStack Roles: compute
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 net_local_1
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.201.0/24
+#    Gateway: IPv4: 192.168.201.1
+#    Connected Nodes: 2
+#
+# 📡 net_local_2
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.202.0/24, IPv6: 2001:db8:1234:1::/64
+#    Gateway: IPv4: 192.168.202.1, IPv6: 2001:db8:1234:1::1
+#    Connected Nodes: 1
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net_local_1
+#    └── lc-1  (192.168.201.211/24)
+#    └── lc-2  (192.168.201.212/24)
+#
+# Network: net_local_2
+#    └── lc-1  (192.168.202.211/24)
+#
+#
+
+
+################################################################################
+# FABRIC Slice Topology Configuration Template
+################################################################################
+#
+# This file serves as a comprehensive blueprint for defining FABRIC slice
+# topologies with detailed comments explaining options and constraints.
+#
+# Filename Convention: _slice_topology*.yaml
+#
+################################################################################
+
+# ==============================================================================
+# NODES CONFIGURATION
+# ==============================================================================
+# Define all virtual machines (VMs) that will be provisioned on FABRIC
+#
+site_topology_nodes:
+  nodes:
+    
+    # ══════════════════════════════════════════════════════════════════════════
+    # Node 1: Full-featured node with all hardware types
+    # ══════════════════════════════════════════════════════════════════════════
+    node1:
+      # ─────────────────────────────────────────────────────────────────────────
+      # Basic Node Information
+      # ─────────────────────────────────────────────────────────────────────────
+      name: lc-1              # Logical node name on the slice [REQUIRED]
+      hostname: lc-1          # Hostname of the VM [REQUIRED]
+      site: TACC              # FABRIC site where node is provisioned [OPTIONAL]
+                              # Use notebook-aux-resource-finder.ipynb to find sites
+
+      # ─────────────────────────────────────────────────────────────────────────
+      # Hardware Capacity Specifications
+      # ─────────────────────────────────────────────────────────────────────────
+      capacity:
+        cpu: 4                # Number of CPU cores [REQUIRED, integer]
+        ram: 32               # RAM in GB [REQUIRED, integer]
+        disk: 100             # Disk storage in GB [REQUIRED, integer]
+        os: default_rocky_9   # Operating system image [REQUIRED, string]
+                              # Options: default_rocky_9, default_ubuntu_24,
+                              #          default_ubuntu_22, default_debian_11
+
+      # ─────────────────────────────────────────────────────────────────────────
+      # Persistent Storage Volumes
+      # ─────────────────────────────────────────────────────────────────────────
+      # Optional: Attach persistent storage volumes to the node
+      #
+      persistent_storage:
+        volume:
+          volume1:                  # Volume identifier [OPTIONAL]
+            name: FABRIC_Staff_1T   # Volume name [OPTIONAL]
+            size: 1000              # Size in GB [OPTIONAL, integer]
+
+      # ─────────────────────────────────────────────────────────────────────────
+      # PCI Devices Configuration
+      # ─────────────────────────────────────────────────────────────────────────
+      # All PCI device types are OPTIONAL. Use {} for empty sections.
+      #
+      pci:
+        
+        # ───────────────────────────────────────────────────────────────────────
+        # DPU (Data Processing Unit / Smart NIC)
+        # ───────────────────────────────────────────────────────────────────────
+        # Hardware accelerators with integrated compute capabilities
+        #
+        dpu:
+          dpu1:
+            name: dpu1        # Logical name on the slice
+            model: NIC_ConnectX_7_100
+                              # Supported models:
+                              #   - NIC_ConnectX_7_100
+                              #   - NIC_ConnectX_7_400
+                              #   - NIC_BlueField2_ConnectX_6
+            # Network interfaces on this DPU
+            interfaces:
+              # First interface on DPU
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.200/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+              
+              # Second interface on DPU (unbound)
+              iface2:
+                device: eth5
+                connection: conn-eth5
+                binding: ''          # Empty = unbound interface
+                ipv4:
+                  address: ''        # No IP assigned
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+
+        # ───────────────────────────────────────────────────────────────────────
+        # FPGA (Field-Programmable Gate Array)
+        # ───────────────────────────────────────────────────────────────────────
+        fpga:
+          fpga1:
+            name: fpga1       # Logical name on the slice
+            model: FPGA_Xilinx_U280
+                              # Supported models:
+                              #   - FPGA_Xilinx_U280
+            # Network interfaces on this FPGA
+            interfaces:
+              # First interface on FPGA
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_1
+                ipv4:
+                  address: ''        # No IP assigned 
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''        # No IP assigned
+                  gateway: ''
+                  dns: ''
+              
+              # Second interface on FPGA
+              iface2:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_2          
+                ipv4:
+                  address: ''        # No IP assigned
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''        # No IP assigned
+                  gateway: ''
+                  dns: ''
+        
+        # ───────────────────────────────────────────────────────────────────────
+        # GPU (Graphics Processing Unit)
+        # ───────────────────────────────────────────────────────────────────────
+        gpu:
+          gpu1:
+            name: rtx6000     # Logical name on the slice
+            model: GPU_RTX6000
+                              # Supported models:
+                              #   - GPU_RTX6000
+                              #   - GPU_TeslaT4
+                              #   - GPU_A40
+                              #   - GPU_A30
+        
+        # ───────────────────────────────────────────────────────────────────────
+        # NVMe (Non-Volatile Memory Express Storage)
+        # ───────────────────────────────────────────────────────────────────────
+        nvme:
+          nvme1:
+            name: nvme1       # Logical name on the slice
+            model: NVME_P4510
+                              # Supported models:
+                              #   - NVME_P4510
+        
+        # ───────────────────────────────────────────────────────────────────────
+        # Network Interface Cards (NICs)
+        # ───────────────────────────────────────────────────────────────────────
+        network:
+          
+          # ─── NIC 1: Basic NIC with single interface ───────────────────────────
+          nic1:
+            name: nic1        # Logical name on the slice
+            model: NIC_Basic  # Supported models:
+                              #   - NIC_Basic
+                              #   - NIC_ConnectX_5
+                              #   - NIC_ConnectX_6
+            
+            # Network interfaces on this NIC
+            interfaces:
+              iface1:
+                device: eth1           # OS network device name
+                connection: conn-eth1  # NetworkManager connection name
+                binding: net_local_1   # Network name (from site_topology_networks)
+                
+                # IPv4 configuration [OPTIONAL]
+                ipv4:
+                  address: 192.168.201.211/24  # IP address with CIDR notation
+                  gateway: 192.168.201.1       # Default gateway
+                  dns: 8.8.8.8                 # DNS server
+                
+                # IPv6 configuration [OPTIONAL]
+                ipv6:
+                  address: ''          # IPv6 address with prefix
+                  gateway: ''          # IPv6 gateway
+                  dns: ''              # IPv6 DNS server
+          
+          # ─── NIC 2: High-performance NIC with multiple interfaces ─────────────
+          nic2:
+            name: nic2
+            model: NIC_ConnectX_6
+            
+            interfaces:
+              # First interface on NIC2
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.211/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+              
+              # Second interface on NIC2 (unbound)
+              iface2:
+                device: eth3
+                connection: conn-eth3
+                binding: ''          # Empty = unbound interface
+                ipv4:
+                  address: ''        # No IP assigned
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+
+      # ─────────────────────────────────────────────────────────────────────────
+      # Application-Specific Configuration
+      # ─────────────────────────────────────────────────────────────────────────
+      # Custom roles for specific deployments (e.g., OpenStack)
+      # This section is application-dependent and OPTIONAL
+      #
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # Node 2: Minimal compute node
+    # ══════════════════════════════════════════════════════════════════════════
+    node2:
+      name: lc-2
+      hostname: lc-2
+      site: TACC
+
+      capacity:
+        cpu: 2
+        ram: 8
+        disk: 10
+        os: default_rocky_9
+
+      # No persistent storage
+      persistent_storage: 
+        volume: {}
+
+      # Minimal hardware configuration
+      pci:
+        gpu: {}            # No GPUs
+        nvme: {}           # No NVMe storage
+        network:
+          nic1:            # Single basic NIC
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.212/24
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'    # Compute-only node
+          storage: 'false'
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # Node 3: Minimal compute node (no NICs configured)
+    # ══════════════════════════════════════════════════════════════════════════
+    node3:
+      name: lc-3
+      hostname: lc-3
+      site: TACC
+
+      capacity:
+        cpu: 2
+        ram: 8
+        disk: 10
+        os: default_rocky_9
+
+      persistent_storage: 
+        volume: {}
+      
+      # No hardware devices
+      pci:
+        gpu: {}
+        nvme: {}
+        network: {}        # No network interfaces configured
+
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    
+    # ══════════════════════════════════════════════════════════════════════════
+    # Network 1: IPv4-only private network
+    # ══════════════════════════════════════════════════════════════════════════
+    net1:
+      name: net_local_1    # Logical network name on the slice [REQUIRED]
+      type: L2Bridge       # Network type [REQUIRED]
+                           # Supported types:
+                           #   - L2Bridge:  Layer 2 bridge network
+                           #   - L2PTP:     Layer 2 point-to-point
+                           #   - L2STS:     Layer 2 stitch
+                           #   - IPv4:      IPv4 network
+                           #   - IPv6:      IPv6 network
+                           #   - IPv4Ext:   IPv4 external network
+                           #   - IPv6Ext:   IPv6 external network
+      
+      # Subnet configuration [OPTIONAL]
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24   # IPv4 subnet in CIDR notation
+          gateway: 192.168.201.1      # IPv4 gateway address
+        ipv6:
+          address: ''                 # IPv6 subnet (empty = not configured)
+          gateway: ''                 # IPv6 gateway
+    
+    # ══════════════════════════════════════════════════════════════════════════
+    # Network 2: Dual-stack (IPv4 + IPv6) network
+    # ══════════════════════════════════════════════════════════════════════════
+    net2:
+      name: net_local_2
+      type: L2Bridge
+      
+      # Dual-stack configuration
+      subnet:
+        ipv4:
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'   # IPv6 subnet
+          gateway: '2001:db8:1234:1::1'     # IPv6 gateway
+
+
+################################################################################
+# VALIDATION AND USAGE
+################################################################################
+#
+# Validate this file:
+#   python -c "from slice_utils_models import load_topology_from_yaml_file; \
+#              load_topology_from_yaml_file('_slice_topology.yaml')"
+#
+# Generate summary:
+#   python tool_topology_summary_generator.py _slice_topology.yaml
+#
+# View topology:
+#   Open notebook-aux-topology-summary-generator.ipynb
+#
+# Deploy to FABRIC:
+#   Open notebook-1-create-slice.ipynb
+#
+################################################################################
