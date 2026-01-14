@@ -5,37 +5,16 @@
 # Total Networks: 1
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: Node1
-#  ├─ System:
-#      • OS: dpu_ubuntu_24
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
-#    └─ Interface: iface1, Binding: net1, IPv4: 
-#    └─ Interface: iface2, Binding: net1, IPv4: 
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: Node1
+#   Site: ATLA | Resources: 4c/16G/10G
+#   OS: dpu_ubuntu_24
+#   └─ dpu1.iface1 → net1 (N/A)
+#   └─ dpu1.iface2 → net1 (N/A)
 #
-#📸 Node: Node2
-#  ├─ System:
-#      • OS: default_ubuntu_24
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net1, IPv4: 
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 net1
-#    Type: IPv4
-#    Subnet: Managed by orchestrator (IPs auto-assigned)
-#    Gateway: Managed by orchestrator
-#    Connected Nodes: 2
+#🔸 Node: Node2
+#   Site: ATLA | Resources: 4c/16G/10G
+#   OS: default_ubuntu_24
+#   └─ nic1.iface1 → net1 (N/A)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -43,15 +22,14 @@
 #    └── Node1  (N/A)
 #    └── Node2  (N/A)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: Node1             
       hostname: Node1          
-      site: ATLA               
+      site: ATLA
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -87,11 +65,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
     node2:
       name: Node2             
       hostname: Node2         
-      site: ATLA             
+      site: ATLA
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -121,7 +101,7 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 # ==============================================================================
 # NETWORKS CONFIGURATION
@@ -134,3 +114,9 @@ site_topology_networks:
       name: net1
       type: IPv4
       subnet: {}
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

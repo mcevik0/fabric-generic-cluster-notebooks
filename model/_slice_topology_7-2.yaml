@@ -5,36 +5,15 @@
 # Total Networks: 1
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: lc-1
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: fabnetv6, IPv4: 
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: lc-1
+#   Site: SRI | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → fabnetv6 (N/A)
 #
-#📸 Node: lc-2
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: fabnetv6, IPv4: 
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 fabnetv6
-#    Type: IPv6
-#    Subnet: Managed by orchestrator (IPs auto-assigned)
-#    Gateway: Managed by orchestrator
-#    Connected Nodes: 2
+#🔸 Node: lc-2
+#   Site: SRI | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → fabnetv6 (N/A)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -42,15 +21,14 @@
 #    └── lc-1  (N/A)
 #    └── lc-2  (N/A)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: lc-1              
       hostname: lc-1          
-      site: SRI               
+      site: SRI
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -80,11 +58,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
     node2:
       name: lc-2              
       hostname: lc-2          
-      site: SRI               
+      site: SRI
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -114,7 +94,7 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 # ==============================================================================
 # NETWORKS CONFIGURATION
@@ -127,3 +107,9 @@ site_topology_networks:
       name: fabnetv6
       type: IPv6
       subnet: {}
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

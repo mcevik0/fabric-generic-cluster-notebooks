@@ -5,32 +5,11 @@
 # Total Networks: 2
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: lc-1
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ FPGA: fpga1 (FPGA_Xilinx_U280)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 
-#    └─ Interface: iface2, Binding: net_local_2, IPv4: 
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 net_local_1
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:1::/64
-#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:1::1
-#    Connected Nodes: 1
-#
-# 📡 net_local_2
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.202.0/24, IPv6: 2001:db8:1234:2::/64
-#    Gateway: IPv4: 192.168.202.1, IPv6: 2001:db8:1234:2::1
-#    Connected Nodes: 1
+#🔸 Node: lc-1
+#   Site: PSC | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ fpga1.iface1 → net_local_1 (N/A)
+#   └─ fpga1.iface2 → net_local_2 (N/A)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -40,15 +19,14 @@
 # Network: net_local_2
 #    └── lc-1  (N/A)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: lc-1              
       hostname: lc-1          
-      site: PSC               
+      site: PSC
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -84,7 +62,8 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
 # ==============================================================================
 # NETWORKS CONFIGURATION
 # ==============================================================================
@@ -112,3 +91,9 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:2::/64'
           gateway: '2001:db8:1234:2::1'
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

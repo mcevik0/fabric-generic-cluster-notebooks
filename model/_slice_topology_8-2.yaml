@@ -5,44 +5,17 @@
 # Total Networks: 2
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: lc-1
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
-#    └─ Interface: iface1, Binding: fabnetv4, IPv4: 
-#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.200/24, IPv6: 2001:db8:1234:1::200/64
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: lc-1
+#   Site: PSC | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ dpu1.iface1 → fabnetv4 (N/A)
+#   └─ dpu1.iface2 → net_local_1 (192.168.201.200/24)
 #
-#📸 Node: lc-2
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_ConnectX_5)
-#    └─ Interface: iface1, Binding: fabnetv4, IPv4: 
-#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.201/24, IPv6: 2001:db8:1234:1::201/64
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 net_local_1
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:1::/64
-#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:1::1
-#    Connected Nodes: 2
-#
-# 📡 fabnetv4
-#    Type: IPv4
-#    Subnet: Managed by orchestrator (IPs auto-assigned)
-#    Gateway: Managed by orchestrator
-#    Connected Nodes: 2
+#🔸 Node: lc-2
+#   Site: PSC | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → fabnetv4 (N/A)
+#   └─ nic1.iface2 → net_local_1 (192.168.201.201/24)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -54,15 +27,14 @@
 #    └── lc-1  (N/A)
 #    └── lc-2  (N/A)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: lc-1              
       hostname: lc-1          
-      site: PSC               
+      site: PSC
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -104,10 +76,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
     node2:
       name: lc-2
       hostname: lc-2
-      site: PSC               
+      site: PSC
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -149,7 +124,7 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 # ==============================================================================
 # NETWORKS CONFIGURATION
@@ -172,4 +147,9 @@ site_topology_networks:
       name: fabnetv4
       type: IPv4
       subnet: {}
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
 

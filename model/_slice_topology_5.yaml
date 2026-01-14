@@ -5,84 +5,31 @@
 # Total Networks: 3
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: lc-1
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ GPUs:
-#    └─ rtx6000 (GPU_RTX6000)
-#  ├─ NVMe Storage:
-#    └─ nvme1 (NVME_P4510)
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.211/24, IPv6: 2001:db8:1234:1::1/64
-#  ├─ NIC: nic2 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.211/24, IPv6: 2001:db8:1234:2::1/64
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: lc-1
+#   Site: CLEM | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.211/24)
+#   └─ nic2.iface1 → net_local_2 (192.168.202.211/24)
 #
-#📸 Node: lc-2
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_ConnectX_6)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.212/24, IPv6: 2001:db8:1234:1::2/64
-#    └─ Interface: iface2, Binding: net_local_2, IPv4: 192.168.202.212/24, IPv6: 2001:db8:1234:2::2/64
-#  ├─ NIC: nic2 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.212/24, IPv6: 2001:db8:1234:3::2/64
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: lc-2
+#   Site: CLEM | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.212/24)
+#   └─ nic1.iface2 → net_local_2 (192.168.202.212/24)
+#   └─ nic2.iface1 → net_local_3 (192.168.203.212/24)
 #
-#📸 Node: lc-3
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.213/24, IPv6: 2001:db8:1234:1::3/64
-#  ├─ NIC: nic2 (NIC_ConnectX_5)
-#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.213/24, IPv6: 2001:db8:1234:2::3/64
-#    └─ Interface: iface2, Binding: net_local_3, IPv4: 192.168.203.213/24, IPv6: 2001:db8:1234:3::3/64
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: lc-3
+#   Site: CLEM | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.213/24)
+#   └─ nic2.iface1 → net_local_2 (192.168.202.213/24)
+#   └─ nic2.iface2 → net_local_3 (192.168.203.213/24)
 #
-#📸 Node: lc-4
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.214/24, IPv6: 2001:db8:1234:1::4/64
-#  ├─ NIC: nic2 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.214/24, IPv6: 2001:db8:1234:2::4/64
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 net_local_1
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:1::/64
-#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:1::1
-#    Connected Nodes: 4
-#
-# 📡 net_local_2
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.202.0/24, IPv6: 2001:db8:1234:2::/64
-#    Gateway: IPv4: 192.168.202.1, IPv6: 2001:db8:1234:2::1
-#    Connected Nodes: 4
-#
-# 📡 net_local_3
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.203.0/24, IPv6: 2001:db8:1234:3::/64
-#    Gateway: IPv4: 192.168.203.1, IPv6: 2001:db8:1234:3::1
-#    Connected Nodes: 2
+#🔸 Node: lc-4
+#   Site: CLEM | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.214/24)
+#   └─ nic2.iface1 → net_local_2 (192.168.202.214/24)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -102,15 +49,14 @@
 #    └── lc-2  (192.168.203.212/24)
 #    └── lc-3  (192.168.203.213/24)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: lc-1              
       hostname: lc-1          
-      site: CLEM               
+      site: CLEM
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -168,11 +114,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
     node2:
       name: lc-2              
       hostname: lc-2          
-      site: CLEM               
+      site: CLEM
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -236,12 +184,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
     node3:
       name: lc-3              
       hostname: lc-3          
-      site: CLEM               
+      site: CLEM
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -306,12 +255,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
     node4:
       name: lc-4              
       hostname: lc-4          
-      site: CLEM               
+      site: CLEM
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -363,7 +313,7 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 # ==============================================================================
 # NETWORKS CONFIGURATION
@@ -402,3 +352,9 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:3::/64'
           gateway: '2001:db8:1234:3::1'
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
