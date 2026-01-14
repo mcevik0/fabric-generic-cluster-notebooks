@@ -5,46 +5,17 @@
 # Total Networks: 2
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: lc-1
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.211/24
-#  ├─ NIC: nic2 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.211/24
-#  ├─ OpenStack Roles: control, network, storage
+#🔸 Node: lc-1
+#   Site: SRI | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.211/24)
+#   └─ nic2.iface1 → net_local_2 (192.168.202.211/24)
 #
-#📸 Node: lc-2
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.212/24
-#  ├─ NIC: nic2 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.212/24
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 net_local_1
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.201.0/24
-#    Gateway: IPv4: 192.168.201.1
-#    Connected Nodes: 2
-#
-# 📡 net_local_2
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.202.0/24
-#    Gateway: IPv4: 192.168.202.1
-#    Connected Nodes: 2
+#🔸 Node: lc-2
+#   Site: SRI | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.212/24)
+#   └─ nic2.iface1 → net_local_2 (192.168.202.212/24)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -56,15 +27,14 @@
 #    └── lc-1  (192.168.202.211/24)
 #    └── lc-2  (192.168.202.212/24)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: lc-1              
       hostname: lc-1          
-      site: SRI               
+      site: SRI
+      worker: sri-w1.fabric-testbed.net
       capacity:
         cpu: 4                
         ram: 16              
@@ -116,11 +86,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
     node2:
       name: lc-2              
       hostname: lc-2          
-      site: SRI               
+      site: SRI
+      worker: sri-w3.fabric-testbed.net
       capacity:
         cpu: 4                
         ram: 16              
@@ -172,7 +144,7 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 # ==============================================================================
 # NETWORKS CONFIGURATION
@@ -201,3 +173,18 @@ site_topology_networks:
         ipv6:
           address: ''
           gateway: ''
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports:
+    fp1:
+      name: 'SENSE-MGHPCC'
+      site: MASS
+      vlan: 3919
+      binding: net_local_1
+    fp2:
+      name: 'AmLight-EXP-Layer2-FIU'
+      site: FIU
+      vlan: 4016
+      binding: net_local_2

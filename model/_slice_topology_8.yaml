@@ -5,60 +5,17 @@
 # Total Networks: 5
 #──────────────────────────────────────────────────────────────────────────────
 #
-#📸 Node: lc-1
-#  ├─ System:
-#      • OS: default_rocky_9
-#      • CPU: 4 vCPU
-#      • RAM: 16 GB
-#      • Disk: 10 GB
-#      • Persistent Storage: {}
-#  ├─ FPGA: fpga1 (FPGA_Xilinx_U280)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 
-#    └─ Interface: iface2, Binding: net_local_2, IPv4: 
-#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
-#    └─ Interface: iface1, Binding: fabnetv4, IPv4: 
-#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.200/24, IPv6: 2001:db8:1234:1::200/64
-#  ├─ NIC: nic1 (NIC_Basic)
-#    └─ Interface: iface1, Binding: fabnetv6, IPv4: 
-#  ├─ NIC: nic2 (NIC_ConnectX_6)
-#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.212/24, IPv6: 2001:db8:1234:1::212/64
-#    └─ Interface: iface2, Binding: net_local_2, IPv4: 192.168.202.212/24, IPv6: 2001:db8:1234:2::212/64
-#  ├─ NIC: nic3 (NIC_Basic)
-#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.212/24, IPv6: 2001:db8:1234:3::212/64
-#  ├─ OpenStack Roles: control, network, storage
-#
-#
-# Network Summary
-#──────────────────────────────────────────────────────────────────────────────
-# 📡 net_local_1
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:1::/64
-#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:1::1
-#    Connected Nodes: 1
-#
-# 📡 net_local_2
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.202.0/24, IPv6: 2001:db8:1234:2::/64
-#    Gateway: IPv4: 192.168.202.1, IPv6: 2001:db8:1234:2::1
-#    Connected Nodes: 1
-#
-# 📡 net_local_3
-#    Type: L2Bridge
-#    Subnet: IPv4: 192.168.203.0/24, IPv6: 2001:db8:1234:3::/64
-#    Gateway: IPv4: 192.168.203.1, IPv6: 2001:db8:1234:3::1
-#    Connected Nodes: 1
-#
-# 📡 fabnetv4
-#    Type: IPv4
-#    Subnet: Managed by orchestrator (IPs auto-assigned)
-#    Gateway: Managed by orchestrator
-#    Connected Nodes: 1
-#
-# 📡 fabnetv6
-#    Type: IPv6
-#    Subnet: Managed by orchestrator (IPs auto-assigned)
-#    Gateway: Managed by orchestrator
-#    Connected Nodes: 1
+#🔸 Node: lc-1
+#   Site: PSC | Resources: 4c/16G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → fabnetv6 (N/A)
+#   └─ nic2.iface1 → net_local_1 (192.168.201.212/24)
+#   └─ nic2.iface2 → net_local_2 (192.168.202.212/24)
+#   └─ nic3.iface1 → net_local_3 (192.168.203.212/24)
+#   └─ dpu1.iface1 → fabnetv4 (N/A)
+#   └─ dpu1.iface2 → net_local_1 (192.168.201.200/24)
+#   └─ fpga1.iface1 → net_local_1 (N/A)
+#   └─ fpga1.iface2 → net_local_2 (N/A)
 #
 # ASCII Topology Diagram
 #──────────────────────────────────────────────────────────────────────────────
@@ -77,15 +34,14 @@
 # Network: fabnetv6
 #    └── lc-1  (N/A)
 #
-#
-
 
 site_topology_nodes:
   nodes:
     node1:
       name: lc-1              
       hostname: lc-1          
-      site: PSC               
+      site: PSC
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -198,7 +154,8 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
-
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
 # ==============================================================================
 # NETWORKS CONFIGURATION
 # ==============================================================================
@@ -244,3 +201,9 @@ site_topology_networks:
       name: fabnetv6
       type: IPv6
       subnet: {}
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
