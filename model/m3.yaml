@@ -1,0 +1,355 @@
+site_topology_nodes:
+  nodes:
+    node1:
+      name: bridge-1              
+      hostname: bridge-1          
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: s1_s2   
+                ipv4:
+                  address:  
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s1_s3
+                ipv4:
+                  address: 
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: s1_layer2   
+                ipv4:
+                  address: 192.168.201.211/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::1/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: s1_layer3
+                ipv4:
+                  address: 
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+
+
+    node2:
+      name: bridge-2             
+      hostname: bridge-2          
+      site: ATLA
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: s1_s2   
+                ipv4:
+                  address:  
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s2_s3
+                ipv4:
+                  address: 
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: s2_layer2   
+                ipv4:
+                  address: 192.168.201.212/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::2/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: s2_layer3
+                ipv4:
+                  address: 
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+
+
+
+    node3:
+      name: bridge-3             
+      hostname: bridge-3          
+      site: UTAH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: s2_s3   
+                ipv4:
+                  address:  
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s1_s3
+                ipv4:
+                  address: 
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: s3_layer2   
+                ipv4:
+                  address: 192.168.201.213/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::3/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: s3_layer3
+                ipv4:
+                  address: 
+                  gateway: 
+                  dns: 
+                ipv6:
+                  address: 
+                  gateway: 
+                  dns: 
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+
+
+
+
+
+
+
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: s1_s2
+      type: L2STS
+      subnet:
+        ipv4: {}
+        ipv6: {}
+    net2:
+      name: s1_s3
+      type: L2STS
+      subnet:
+        ipv4: {}
+        ipv6: {}
+    net3:
+      name: s2_s3
+      type: L2STS
+      subnet:
+        ipv4: {}
+        ipv6: {}
+    net4:
+      name: s1_layer2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+    net5:
+      name: s2_layer2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+    net6:
+      name: s3_layer2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+    net7:
+      name: s1_layer3
+      type: IPv4
+      subnet: {}
+    net8:
+      name: s2_layer3
+      type: IPv4
+      subnet: {}
+    net9:
+      name: s3_layer3
+      type: IPv4
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

@@ -1,0 +1,140 @@
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: MAX
+      worker: ''
+      capacity:
+        cpu: 16                
+        ram: 64              
+        disk: 100             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: 
+          gpu1:
+            name: rtx6000
+            model: GPU_RTX6000
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.211/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::1/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: fabnetv4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        
+    node2:
+      name: lc-2              
+      hostname: lc-2          
+      site: MAX
+      worker: ''
+      capacity:
+        cpu: 16                
+        ram: 64              
+        disk: 100             
+        os: default_ubuntu_24 
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: 
+          gpu1:
+            name: rtx6000
+            model: GPU_RTX6000
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.212/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::2/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: fabnetv4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+    net2:
+      name: fabnetv4
+      type: IPv4
+      subnet: {}
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
