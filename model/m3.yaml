@@ -1,10 +1,10 @@
 site_topology_nodes:
   nodes:
     node1:
-      name: bridge-1              
-      hostname: bridge-1          
+      name: s1-br              
+      hostname: s1-br          
       site: WASH
-      worker: ''
+      worker: 'wash-w1.fabric-testbed.net'
       capacity:
         cpu: 4                
         ram: 16              
@@ -27,13 +27,13 @@ site_topology_nodes:
                 connection: conn-eth1  
                 binding: s1_s2   
                 ipv4:
-                  address:  
-                  gateway: 
-                  dns: 
+                  address: 192.168.12.211/24  
+                  gateway: 192.168.12.1
+                  dns: 8.8.8.8
                 ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: '2001:db8:1234:12::211/64'
+                  gateway: '2001:db8:1234:12::1'
+                  dns: '2001:4860:4860::8888'
           nic2:
             name: nic2
             model: NIC_Basic
@@ -43,13 +43,13 @@ site_topology_nodes:
                 connection: conn-eth2
                 binding: s1_s3
                 ipv4:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: 192.168.13.211/24  
+                  gateway: 192.168.13.1
+                  dns: 8.8.8.8
                 ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: '2001:db8:1234:13::211/64'
+                  gateway: '2001:db8:1234:13::1'
+                  dns: '2001:4860:4860::8888'
           nic3:
             name: nic3     
             model: NIC_Basic 
@@ -63,8 +63,8 @@ site_topology_nodes:
                   gateway: 192.168.201.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:1::1/64'
-                  gateway: '2001:db8:1234:1::1'
+                  address: '2001:db8:1234:201::211/64'
+                  gateway: '2001:db8:1234:201::1'
                   dns: '2001:4860:4860::8888'
           nic4:
             name: nic4
@@ -74,28 +74,18 @@ site_topology_nodes:
                 device: eth4
                 connection: conn-eth4
                 binding: s1_layer3
-                ipv4:
-                  address: 
-                  gateway: 
-                  dns: 
-                ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                ipv4: {}
+                ipv6: {}
       specific:
-        openstack:           # OpenStack role assignments
-          control: 'true'    # Control plane node [STRING: 'true' or 'false']
-          network: 'true'    # Network services node
-          compute: 'false'   # Compute node (hypervisor)
-          storage: 'true'    # Storage services node
+        openstack: {}
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
     node2:
-      name: bridge-2             
-      hostname: bridge-2          
+      name: s2-br             
+      hostname: s2-br          
       site: ATLA
-      worker: ''
+      worker: 'atla-w1.fabric-testbed.net'
       capacity:
         cpu: 4                
         ram: 16              
@@ -118,13 +108,13 @@ site_topology_nodes:
                 connection: conn-eth1  
                 binding: s1_s2   
                 ipv4:
-                  address:  
-                  gateway: 
-                  dns: 
+                  address: 192.168.12.212/24  
+                  gateway: 192.168.12.1
+                  dns: 8.8.8.8
                 ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: '2001:db8:1234:12::212/64'
+                  gateway: '2001:db8:1234:12::1'
+                  dns: '2001:4860:4860::8888'
           nic2:
             name: nic2
             model: NIC_Basic
@@ -134,13 +124,13 @@ site_topology_nodes:
                 connection: conn-eth2
                 binding: s2_s3
                 ipv4:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: 192.168.23.212/24  
+                  gateway: 192.168.23.1
+                  dns: 8.8.8.8
                 ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: '2001:db8:1234:23::212/64'
+                  gateway: '2001:db8:1234:23::1'
+                  dns: '2001:4860:4860::8888'
           nic3:
             name: nic3     
             model: NIC_Basic 
@@ -150,12 +140,12 @@ site_topology_nodes:
                 connection: conn-eth3  
                 binding: s2_layer2   
                 ipv4:
-                  address: 192.168.201.212/24  
-                  gateway: 192.168.201.1
+                  address: 192.168.202.212/24  
+                  gateway: 192.168.202.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:1::2/64'
-                  gateway: '2001:db8:1234:1::1'
+                  address: '2001:db8:1234:202::212/64'
+                  gateway: '2001:db8:1234:202::1'
                   dns: '2001:4860:4860::8888'
           nic4:
             name: nic4
@@ -165,29 +155,19 @@ site_topology_nodes:
                 device: eth4
                 connection: conn-eth4
                 binding: s2_layer3
-                ipv4:
-                  address: 
-                  gateway: 
-                  dns: 
-                ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                ipv4: {}
+                ipv6: {}
       specific:
-        openstack:           # OpenStack role assignments
-          control: 'true'    # Control plane node [STRING: 'true' or 'false']
-          network: 'true'    # Network services node
-          compute: 'false'   # Compute node (hypervisor)
-          storage: 'true'    # Storage services node
+        openstack: {}
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
 
     node3:
-      name: bridge-3             
-      hostname: bridge-3          
+      name: s3-br           
+      hostname: s3-br          
       site: UTAH
-      worker: ''
+      worker: 'utah-w1.fabric-testbed.net'
       capacity:
         cpu: 4                
         ram: 16              
@@ -210,13 +190,13 @@ site_topology_nodes:
                 connection: conn-eth1  
                 binding: s2_s3   
                 ipv4:
-                  address:  
-                  gateway: 
-                  dns: 
+                  address: 192.168.23.213/24  
+                  gateway: 192.168.23.1
+                  dns: 8.8.8.8
                 ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: '2001:db8:1234:23::213/64'
+                  gateway: '2001:db8:1234:23::1'
+                  dns: '2001:4860:4860::8888'
           nic2:
             name: nic2
             model: NIC_Basic
@@ -226,13 +206,13 @@ site_topology_nodes:
                 connection: conn-eth2
                 binding: s1_s3
                 ipv4:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: 192.168.13.213/24  
+                  gateway: 192.168.13.1
+                  dns: 8.8.8.8
                 ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                  address: '2001:db8:1234:13::213/64'
+                  gateway: '2001:db8:1234:13::1'
+                  dns: '2001:4860:4860::8888'
           nic3:
             name: nic3     
             model: NIC_Basic 
@@ -242,12 +222,12 @@ site_topology_nodes:
                 connection: conn-eth3  
                 binding: s3_layer2   
                 ipv4:
-                  address: 192.168.201.213/24  
-                  gateway: 192.168.201.1
+                  address: 192.168.203.213/24  
+                  gateway: 192.168.203.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:1::3/64'
-                  gateway: '2001:db8:1234:1::1'
+                  address: '2001:db8:1234:203::213/64'
+                  gateway: '2001:db8:1234:203::1'
                   dns: '2001:4860:4860::8888'
           nic4:
             name: nic4
@@ -257,27 +237,167 @@ site_topology_nodes:
                 device: eth4
                 connection: conn-eth4
                 binding: s3_layer3
-                ipv4:
-                  address: 
-                  gateway: 
-                  dns: 
-                ipv6:
-                  address: 
-                  gateway: 
-                  dns: 
+                ipv4: {}
+                ipv6: {}
       specific:
-        openstack:           # OpenStack role assignments
-          control: 'true'    # Control plane node [STRING: 'true' or 'false']
-          network: 'true'    # Network services node
-          compute: 'false'   # Compute node (hypervisor)
-          storage: 'true'    # Storage services node
+        openstack:  {}
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
 
 
+#
+# Host nodes are required to be located on a host other than the bridge nodes (above)
+# These nodes can be distributed across any other host, or all hosted on the same host, 
+# provided it is not the bridge1, bridge2 or bridge3 host.
+# 
+
+    node4:
+      name: s1-vm              
+      hostname: s1-vm          
+      site: WASH
+      worker: 'wash-w2.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: s1_layer2   
+                ipv4:
+                  address: 192.168.201.214/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:201::214/64'
+                  gateway: '2001:db8:1234:201::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s1_layer3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
+    node5:
+      name: s2-vm             
+      hostname: s2-vm          
+      site: ATLA
+      worker: 'atla-w2.fabric-testbed.net''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: s2_layer2   
+                ipv4:
+                  address: 192.168.202.215/24  
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:202::215/64'
+                  gateway: '2001:db8:1234:202::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s2_layer3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+
+
+
+    node6:
+      name: s3-vm            
+      hostname: s3-vm          
+      site: UTAH
+      worker: 'utah-w2.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1   
+                connection: conn-eth1
+                binding: s3_layer2   
+                ipv4:
+                  address: 192.168.203.216/24  
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:203::216/64'
+                  gateway: '2001:db8:1234:203::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s3_layer3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
 
@@ -286,26 +406,39 @@ site_topology_nodes:
 # ==============================================================================
 # Define Layer 2/3 networks that connect nodes together
 #
+
 site_topology_networks:
   networks:
     net1:
       name: s1_s2
       type: L2STS
       subnet:
-        ipv4: {}
-        ipv6: {}
+        ipv4:
+          address: 192.168.12.0/24
+          gateway: 192.168.12.1
+        ipv6:
+          address: '2001:db8:1234:12::/64'
+          gateway: '2001:db8:1234:12::1'
     net2:
       name: s1_s3
       type: L2STS
       subnet:
-        ipv4: {}
-        ipv6: {}
+        ipv4:
+          address: 192.168.13.0/24
+          gateway: 192.168.13.1
+        ipv6:
+          address: '2001:db8:1234:13::/64'
+          gateway: '2001:db8:1234:13::1'
     net3:
       name: s2_s3
       type: L2STS
       subnet:
-        ipv4: {}
-        ipv6: {}
+        ipv4:
+          address: 192.168.23.0/24
+          gateway: 192.168.23.1
+        ipv6:
+          address: '2001:db8:1234:23::/64'
+          gateway: '2001:db8:1234:23::1'
     net4:
       name: s1_layer2
       type: L2Bridge
@@ -314,28 +447,28 @@ site_topology_networks:
           address: 192.168.201.0/24
           gateway: 192.168.201.1
         ipv6:
-          address: '2001:db8:1234:1::/64'
-          gateway: '2001:db8:1234:1::1'
+          address: '2001:db8:1234:201::/64'
+          gateway: '2001:db8:1234:201::1'
     net5:
       name: s2_layer2
       type: L2Bridge
       subnet:
         ipv4:
-          address: 192.168.201.0/24
-          gateway: 192.168.201.1
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
         ipv6:
-          address: '2001:db8:1234:1::/64'
-          gateway: '2001:db8:1234:1::1'
+          address: '2001:db8:1234:202::/64'
+          gateway: '2001:db8:1234:202::1'
     net6:
       name: s3_layer2
       type: L2Bridge
       subnet:
         ipv4:
-          address: 192.168.201.0/24
-          gateway: 192.168.201.1
+          address: 192.168.203.0/24
+          gateway: 192.168.203.1
         ipv6:
-          address: '2001:db8:1234:1::/64'
-          gateway: '2001:db8:1234:1::1'
+          address: '2001:db8:1234:203::/64'
+          gateway: '2001:db8:1234:203::1'
     net7:
       name: s1_layer3
       type: IPv4
