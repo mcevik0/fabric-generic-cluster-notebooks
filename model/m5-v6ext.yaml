@@ -1,0 +1,230 @@
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-10
+      hostname: lc-10
+      site: UCSD
+      worker: 'ucsd-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv6Ext-1
+                ipv4: {} 
+                ipv6: {} 
+      specific:
+        openstack: {}
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+    node2:
+      name: lc-20
+      hostname: lc-20
+      site: LOSA
+      worker: 'losa-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv6Ext-2
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+    node3:
+      name: lc-30
+      hostname: lc-30
+      site: SALT
+      worker: 'salt-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv6Ext-3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+
+
+    node4:
+      name: lc-11
+      hostname: lc-11
+      site: UCSD
+      worker: 'ucsd-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv6Ext-1
+                ipv4: {} 
+                ipv6: {} 
+      specific:
+        openstack: {}
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+
+    node5:
+      name: lc-21
+      hostname: lc-21
+      site: LOSA
+      worker: 'losa-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv6Ext-2
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+    node6:
+      name: lc-31
+      hostname: lc-31
+      site: SALT
+      worker: 'salt-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv6Ext-3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+
+
+
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: l3-FABNetv6Ext-1
+      type: IPv6Ext
+      subnet: {}
+    net2:
+      name: l3-FABNetv6Ext-2
+      type: IPv6Ext
+      subnet: {}
+    net3:
+      name: l3-FABNetv6Ext-3
+      type: IPv6Ext
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

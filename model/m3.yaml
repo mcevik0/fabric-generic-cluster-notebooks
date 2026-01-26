@@ -305,7 +305,7 @@ site_topology_nodes:
       name: s2-vm             
       hostname: s2-vm          
       site: ATLA
-      worker: 'atla-w2.fabric-testbed.net''
+      worker: 'atla-w2.fabric-testbed.net'
       capacity:
         cpu: 4                
         ram: 16              
