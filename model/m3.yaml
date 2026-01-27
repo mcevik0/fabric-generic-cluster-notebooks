@@ -78,6 +78,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
@@ -159,6 +161,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
@@ -241,6 +245,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack:  {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
@@ -298,6 +304,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
@@ -347,6 +355,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 
@@ -397,6 +407,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
 
 

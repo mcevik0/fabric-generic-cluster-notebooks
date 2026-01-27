@@ -53,6 +53,8 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'    # Ansible control node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         
     node2:
@@ -108,6 +110,8 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 

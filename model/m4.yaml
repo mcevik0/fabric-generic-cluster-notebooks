@@ -43,12 +43,14 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         
     node2:
       name: lc-2              
       hostname: lc-2          
-      site: SRI
+      site: MASS
       worker: ''
       capacity:
         cpu: 4                
@@ -88,6 +90,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
