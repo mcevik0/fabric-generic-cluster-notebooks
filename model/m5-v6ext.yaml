@@ -30,6 +30,8 @@ site_topology_nodes:
                 ipv6: {} 
       specific:
         openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -63,6 +65,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -96,6 +100,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -131,6 +137,8 @@ site_topology_nodes:
                 ipv6: {} 
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -165,6 +173,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -198,6 +208,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 

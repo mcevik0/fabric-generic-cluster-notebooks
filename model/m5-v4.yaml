@@ -30,6 +30,8 @@ site_topology_nodes:
                 ipv6: {} 
       specific:
         openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -42,7 +44,7 @@ site_topology_nodes:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_rocky_9  
+        os: default_ubuntu_24
       persistent_storage:
         volume: {}
       pci:
@@ -63,6 +65,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -75,7 +79,7 @@ site_topology_nodes:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_rocky_9  
+        os: default_debian_12 
       persistent_storage:
         volume: {}
       pci:
@@ -96,6 +100,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -129,6 +135,8 @@ site_topology_nodes:
                 ipv6: {} 
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -163,6 +171,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -196,6 +206,8 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack: {}
+        ansible:
+          control: 'false'   # Managed node
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
