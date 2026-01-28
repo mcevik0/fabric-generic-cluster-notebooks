@@ -29,9 +29,14 @@ site_topology_nodes:
                 ipv4: {} 
                 ipv6: {} 
       specific:
-        openstack: {}
+        openstack:
+          control: 'true'
+          network: 'false'
+          compute: 'false'
+          storage: 'false'
         ansible:
           control: 'true'   # Ansible control node
+          role: 'webserver,loadbalancer'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -64,9 +69,14 @@ site_topology_nodes:
                 ipv4: {}
                 ipv6: {}
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'
+          role: 'database'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -99,9 +109,18 @@ site_topology_nodes:
                 ipv4: {}
                 ipv6: {}
       specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
+        ansible:
+          control: 'false'   # Ansible control node
+          role: 'webserver'
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: 'dbserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -134,9 +153,13 @@ site_topology_nodes:
                 ipv4: {} 
                 ipv6: {} 
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -173,6 +196,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: 'devenv'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -208,6 +232,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
