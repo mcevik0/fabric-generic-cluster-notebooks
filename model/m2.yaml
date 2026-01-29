@@ -55,6 +55,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'true'    # Ansible control node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         
     node2:
@@ -112,6 +113,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
