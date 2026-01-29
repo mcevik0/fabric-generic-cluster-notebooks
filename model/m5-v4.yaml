@@ -38,7 +38,8 @@ site_topology_nodes:
           control: 'true'   # Ansible control node
           role: 'webserver,loadbalancer'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: 'disabled'
 
     node2:
       name: lc-20
@@ -78,7 +79,9 @@ site_topology_nodes:
           control: 'false'
           role: 'database'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
     node3:
       name: lc-30
@@ -118,7 +121,9 @@ site_topology_nodes:
           control: 'false'   # Ansible control node
           role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
     node4:
       name: lc-11
@@ -158,7 +163,9 @@ site_topology_nodes:
           control: 'false'
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: 'permissive'
+          
 
     node5:
       name: lc-21
@@ -197,7 +204,9 @@ site_topology_nodes:
         ansible:
           control: 'false'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: 'disabled'
+          
 
     node6:
       name: lc-31
@@ -236,7 +245,8 @@ site_topology_nodes:
         ansible:
           control: 'false'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: 'enforcing'
 
 
 # ==============================================================================
