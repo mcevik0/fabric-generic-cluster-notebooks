@@ -34,7 +34,9 @@ site_topology_nodes:
           control: 'true'   # Ansible control node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
     node2:
       name: lc-20
@@ -70,7 +72,9 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
     node3:
       name: lc-30
@@ -106,7 +110,9 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
     node4:
       name: lc-11
@@ -142,7 +148,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
 
 
     node5:
@@ -179,7 +186,9 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
     node6:
       name: lc-31
@@ -215,7 +224,9 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
+          
 
 
 # ==============================================================================

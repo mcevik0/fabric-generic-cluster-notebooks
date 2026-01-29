@@ -47,7 +47,10 @@ site_topology_nodes:
           control: 'true'   # Ansible control node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        
+        selinux: 
+          mode: ''
+
+          
     node2:
       name: lc-2              
       hostname: lc-2          
@@ -95,7 +98,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: ''
 
 # ==============================================================================
 # NETWORKS CONFIGURATION
