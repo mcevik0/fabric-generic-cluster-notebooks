@@ -82,7 +82,8 @@ site_topology_nodes:
           control: 'true'   # Ansible control node
           role: ''
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
-
+        selinux: 
+          mode: ''
 
     node2:
       name: s2-br             
@@ -166,7 +167,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
-
+        selinux: 
+          mode: ''
 
 
     node3:
@@ -251,7 +253,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
-
+        selinux: 
+          mode: ''
 
 
 
@@ -311,7 +314,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
-
+        selinux: 
+          mode: ''
 
     node5:
       name: s2-vm             
@@ -363,7 +367,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
-
+        selinux: 
+          mode: ''
 
 
     node6:
@@ -416,7 +421,8 @@ site_topology_nodes:
           control: 'false'   # Managed node
           role: ''s
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
-
+        selinux: 
+          mode: ''
 
 
 # ==============================================================================
