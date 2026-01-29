@@ -32,6 +32,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'true'   # Ansible control node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -67,6 +68,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -102,6 +104,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -139,6 +142,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -175,6 +179,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -210,6 +215,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 

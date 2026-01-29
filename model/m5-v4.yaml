@@ -4,7 +4,7 @@ site_topology_nodes:
       name: lc-10
       hostname: lc-10
       site: UCSD
-      worker: 'ucsd-w1.fabric-testbed.net'
+      worker: 'ucsd-w3.fabric-testbed.net'
       capacity:
         cpu: 4                
         ram: 16              
@@ -29,9 +29,14 @@ site_topology_nodes:
                 ipv4: {} 
                 ipv6: {} 
       specific:
-        openstack: {}
+        openstack:
+          control: 'true'
+          network: 'false'
+          compute: 'false'
+          storage: 'false'
         ansible:
           control: 'true'   # Ansible control node
+          role: 'webserver,loadbalancer'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -64,9 +69,14 @@ site_topology_nodes:
                 ipv4: {}
                 ipv6: {}
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'
+          role: 'database'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -99,9 +109,14 @@ site_topology_nodes:
                 ipv4: {}
                 ipv6: {}
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'   # Ansible control node
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -109,7 +124,7 @@ site_topology_nodes:
       name: lc-11
       hostname: lc-11
       site: UCSD
-      worker: 'ucsd-w1.fabric-testbed.net'
+      worker: 'ucsd-w3.fabric-testbed.net'
       capacity:
         cpu: 4                
         ram: 16              
@@ -134,11 +149,15 @@ site_topology_nodes:
                 ipv4: {} 
                 ipv6: {} 
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'
+          role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
 
 
     node5:
@@ -170,9 +189,13 @@ site_topology_nodes:
                 ipv4: {}
                 ipv6: {}
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
@@ -205,9 +228,13 @@ site_topology_nodes:
                 ipv4: {}
                 ipv6: {}
       specific:
-        openstack: {}
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
         ansible:
-          control: 'false'   # Managed node
+          control: 'false'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
 
 
