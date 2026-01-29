@@ -30,7 +30,11 @@ site_topology_nodes:
         ansible:
           control: 'true'
           role: 'webserver,loadbalancer'  # Multiple roles
-    
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+          
     node2:
       name: lc-20
       hostname: lc-20
@@ -61,7 +65,11 @@ site_topology_nodes:
         ansible:
           control: 'false'
           role: 'database'  # Single role
-    
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+          
     node3:
       name: lc-30
       hostname: lc-30
@@ -92,7 +100,11 @@ site_topology_nodes:
         ansible:
           control: 'false'
           role: 'webserver'
-    
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+          
     node4:
       name: lc-40
       hostname: lc-40
@@ -123,6 +135,10 @@ site_topology_nodes:
         ansible:
           control: 'false'
           # No role specified - this is OK!
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
 
 site_topology_networks:
   networks:
