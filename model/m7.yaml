@@ -4,12 +4,12 @@ site_topology_nodes:
       name: s1-br              
       hostname: s1-br          
       site: WASH
-      worker: 'wash-w1.fabric-testbed.net'
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_24  
+        os: default_rocky_9
       persistent_storage:
         volume: {}
       pci:
@@ -81,7 +81,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           role: ''
-        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
@@ -89,12 +89,12 @@ site_topology_nodes:
       name: s2-br             
       hostname: s2-br          
       site: ATLA
-      worker: 'atla-w1.fabric-testbed.net'
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_24  
+        os: default_rocky_8
       persistent_storage:
         volume: {}
       pci:
@@ -166,7 +166,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           role: ''
-        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
@@ -175,12 +175,12 @@ site_topology_nodes:
       name: s3-br           
       hostname: s3-br          
       site: UTAH
-      worker: 'utah-w1.fabric-testbed.net'
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_24  
+        os: default_rocky_9  
       persistent_storage:
         volume: {}
       pci:
@@ -252,7 +252,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           role: ''
-        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
@@ -268,7 +268,7 @@ site_topology_nodes:
       name: s1-vm              
       hostname: s1-vm          
       site: WASH
-      worker: 'wash-w2.fabric-testbed.net'
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
@@ -313,7 +313,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           role: ''
-        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
@@ -321,12 +321,12 @@ site_topology_nodes:
       name: s2-vm             
       hostname: s2-vm          
       site: ATLA
-      worker: 'atla-w2.fabric-testbed.net'
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_24  
+        os: default_ubuntu_22
       persistent_storage:
         volume: {}
       pci:
@@ -366,7 +366,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           role: ''
-        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
@@ -375,12 +375,12 @@ site_topology_nodes:
       name: s3-vm            
       hostname: s3-vm          
       site: UTAH
-      worker: 'utah-w2.fabric-testbed.net'
+      worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_24  
+        os: default_debian_12
       persistent_storage:
         volume: {}
       pci:
@@ -420,7 +420,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           role: ''
-        postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
