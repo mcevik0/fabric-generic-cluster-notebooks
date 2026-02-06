@@ -1,8 +1,8 @@
 site_topology_nodes:
   nodes:
     node1:
-      name: s1-br              
-      hostname: s1-br          
+      name: renci-br              
+      hostname: renci-br         
       site: WASH
       worker: ''
       capacity:
@@ -25,13 +25,210 @@ site_topology_nodes:
               iface1:
                 device: eth1           
                 connection: conn-eth1  
-                binding: s1_s2   
+                binding: renci_duke   
                 ipv4:
-                  address: 192.168.12.211/24  
+                  address: 192.168.11.11/24  
+                  gateway: 192.168.11.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:11::11/64'
+                  gateway: '2001:db8:1234:11::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: unc_renci
+                ipv4:
+                  address: 192.168.14.12/24  
+                  gateway: 192.168.14.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:14::12/64'
+                  gateway: '2001:db8:1234:14::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: renci_internal   
+                ipv4:
+                  address: 192.168.201.11/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:201::11/64'
+                  gateway: '2001:db8:1234:201::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: renci_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: renci_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'renci_l3_v4' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+
+    node2:
+      name: duke-br              
+      hostname: duke-br         
+      site: KANS
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: renci_duke   
+                ipv4:
+                  address: 192.168.11.12/24  
+                  gateway: 192.168.11.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:11::12/64'
+                  gateway: '2001:db8:1234:11::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: duke_ncsu
+                ipv4:
+                  address: 192.168.12.11/24  
                   gateway: 192.168.12.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:12::211/64'
+                  address: '2001:db8:1234:12::11/64'
+                  gateway: '2001:db8:1234:12::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: duke_internal   
+                ipv4:
+                  address: 192.168.202.11/24  
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:202::11/64'
+                  gateway: '2001:db8:1234:202::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: duke_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: duke_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'duke_l3_v4' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+    node3:
+      name: ncsu-br              
+      hostname: ncsu-br         
+      site: PSC
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: duke_ncsu   
+                ipv4:
+                  address: 192.168.12.12/24  
+                  gateway: 192.168.12.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:12::12/64'
                   gateway: '2001:db8:1234:12::1'
                   dns: '2001:4860:4860::8888'    
           nic2:
@@ -41,13 +238,13 @@ site_topology_nodes:
               iface1:
                 device: eth2
                 connection: conn-eth2
-                binding: s1_s3
+                binding: ncsu_unc
                 ipv4:
-                  address: 192.168.13.211/24  
+                  address: 192.168.13.11/24  
                   gateway: 192.168.13.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:13::211/64'
+                  address: '2001:db8:1234:13::11/64'
                   gateway: '2001:db8:1234:13::1'
                   dns: '2001:4860:4860::8888'
           nic3:
@@ -57,14 +254,14 @@ site_topology_nodes:
               iface1:
                 device: eth3       
                 connection: conn-eth3  
-                binding: s1_layer2   
+                binding: ncsu_internal   
                 ipv4:
-                  address: 192.168.201.211/24  
-                  gateway: 192.168.201.1
+                  address: 192.168.204.11/24  
+                  gateway: 192.168.204.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:201::211/64'
-                  gateway: '2001:db8:1234:201::1'
+                  address: '2001:db8:1234:204::11/64'
+                  gateway: '2001:db8:1234:204::1'
                   dns: '2001:4860:4860::8888'
           nic4:
             name: nic4
@@ -73,314 +270,222 @@ site_topology_nodes:
               iface1:
                 device: eth4
                 connection: conn-eth4
-                binding: s1_layer3
+                binding: ncsu_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: ncsu_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'ncsu_l3_v4' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+    node4:
+      name: unc-br              
+      hostname: unc-br         
+      site: MAX
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: ncsu_unc   
+                ipv4:
+                  address: 192.168.13.12/24  
+                  gateway: 192.168.13.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:13::12/64'
+                  gateway: '2001:db8:1234:13::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: unc_renci
+                ipv4:
+                  address: 192.168.14.11/24  
+                  gateway: 192.168.14.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:14::11/64'
+                  gateway: '2001:db8:1234:14::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: unc_internal   
+                ipv4:
+                  address: 192.168.203.11/24  
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:203::11/64'
+                  gateway: '2001:db8:1234:203::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: unc_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: unc_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'unc_l3_v4' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#
+#
+
+
+    node5:
+      name: renci-1              
+      hostname: renci-1         
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: renci_internal   
+                ipv4:
+                  address: 192.168.201.12/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:201::12/64'
+                  gateway: '2001:db8:1234:201::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: renci_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: renci_l3_v6
                 ipv4: {}
                 ipv6: {}
       specific:
         openstack: {}
         ansible:
           control: 'true'   # Ansible control node
-          management_network: 's1_layer3' # Ansible management network
+          management_network: 'renci_l3_v4' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
-          mode: ''
-
-    node2:
-      name: s2-br             
-      hostname: s2-br          
-      site: ATLA
-      worker: ''
-      capacity:
-        cpu: 4                
-        ram: 16              
-        disk: 10             
-        os: default_rocky_8
-      persistent_storage:
-        volume: {}
-      pci:
-        dpu: {}
-        fpga: {}
-        gpu: {}
-        nvme: {}
-        network:
-          nic1:
-            name: nic1       
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth1           
-                connection: conn-eth1  
-                binding: s1_s2   
-                ipv4:
-                  address: 192.168.12.212/24  
-                  gateway: 192.168.12.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:12::212/64'
-                  gateway: '2001:db8:1234:12::1'
-                  dns: '2001:4860:4860::8888'
-          nic2:
-            name: nic2
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth2
-                connection: conn-eth2
-                binding: s2_s3
-                ipv4:
-                  address: 192.168.23.212/24  
-                  gateway: 192.168.23.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:23::212/64'
-                  gateway: '2001:db8:1234:23::1'
-                  dns: '2001:4860:4860::8888'
-          nic3:
-            name: nic3     
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth3       
-                connection: conn-eth3  
-                binding: s2_layer2   
-                ipv4:
-                  address: 192.168.202.212/24  
-                  gateway: 192.168.202.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:202::212/64'
-                  gateway: '2001:db8:1234:202::1'
-                  dns: '2001:4860:4860::8888'
-          nic4:
-            name: nic4
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth4
-                connection: conn-eth4
-                binding: s2_layer3
-                ipv4: {}
-                ipv6: {}
-      specific:
-        openstack: {}
-        ansible:
-          control: 'false'   # Managed node
-          management_network: 's2_layer3' # Ansible management network
-          role: ''
-        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        selinux: 
-          mode: ''
+          mode: 'disabled'
 
 
-    node3:
-      name: s3-br           
-      hostname: s3-br          
-      site: UTAH
-      worker: ''
-      capacity:
-        cpu: 4                
-        ram: 16              
-        disk: 10             
-        os: default_rocky_9  
-      persistent_storage:
-        volume: {}
-      pci:
-        dpu: {}
-        fpga: {}
-        gpu: {}
-        nvme: {}
-        network:
-          nic1:
-            name: nic1       
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth1           
-                connection: conn-eth1  
-                binding: s2_s3   
-                ipv4:
-                  address: 192.168.23.213/24  
-                  gateway: 192.168.23.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:23::213/64'
-                  gateway: '2001:db8:1234:23::1'
-                  dns: '2001:4860:4860::8888'
-          nic2:
-            name: nic2
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth2
-                connection: conn-eth2
-                binding: s1_s3
-                ipv4:
-                  address: 192.168.13.213/24  
-                  gateway: 192.168.13.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:13::213/64'
-                  gateway: '2001:db8:1234:13::1'
-                  dns: '2001:4860:4860::8888'
-          nic3:
-            name: nic3     
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth3       
-                connection: conn-eth3  
-                binding: s3_layer2   
-                ipv4:
-                  address: 192.168.203.213/24  
-                  gateway: 192.168.203.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:203::213/64'
-                  gateway: '2001:db8:1234:203::1'
-                  dns: '2001:4860:4860::8888'
-          nic4:
-            name: nic4
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth4
-                connection: conn-eth4
-                binding: s3_layer3
-                ipv4: {}
-                ipv6: {}
-      specific:
-        openstack:  {}
-        ansible:
-          control: 'false'   # Managed node
-          management_network: '' # Ansible management network
-          role: 's3_layer3'
-        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        selinux: 
-          mode: ''
-
-
-
-
-    node4:
-      name: s1-vm1
-      hostname: s1-vm1
-      site: WASH
-      worker: ''
-      capacity:
-        cpu: 4                
-        ram: 16              
-        disk: 10             
-        os: default_ubuntu_24  
-      persistent_storage:
-        volume: {}
-      pci:
-        dpu: {}
-        fpga: {}
-        gpu: {}
-        nvme: {}
-        network:
-          nic1:
-            name: nic1
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth1
-                connection: conn-eth1
-                binding: s1_layer2   
-                ipv4:
-                  address: 192.168.201.214/24  
-                  gateway: 192.168.201.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:201::214/64'
-                  gateway: '2001:db8:1234:201::1'
-                  dns: '2001:4860:4860::8888'
-          nic2:
-            name: nic2
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth2
-                connection: conn-eth2
-                binding: s1_layer3
-                ipv4: {}
-                ipv6: {}
-      specific:
-        openstack: {}
-        ansible:
-          control: 'false'   # Managed node
-          management_network: 's1_layer3' # Ansible management network
-          role: ''
-        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        selinux: 
-          mode: ''
-
-    node5:
-      name: s2-vm1
-      hostname: s2-vm1          
-      site: ATLA
-      worker: ''
-      capacity:
-        cpu: 4                
-        ram: 16              
-        disk: 10             
-        os: default_ubuntu_22
-      persistent_storage:
-        volume: {}
-      pci:
-        dpu: {}
-        fpga: {}
-        gpu: {}
-        nvme: {}
-        network:
-          nic1:
-            name: nic1
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth1
-                connection: conn-eth1
-                binding: s2_layer2   
-                ipv4:
-                  address: 192.168.202.215/24  
-                  gateway: 192.168.202.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:202::215/64'
-                  gateway: '2001:db8:1234:202::1'
-                  dns: '2001:4860:4860::8888'
-          nic2:
-            name: nic2
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth2
-                connection: conn-eth2
-                binding: s2_layer3
-                ipv4: {}
-                ipv6: {}
-      specific:
-        openstack: {}
-        ansible:
-          control: 'false'   # Managed node
-          management_network: '' # Ansible management network
-          role: 's2_layer3'
-        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        selinux: 
-          mode: ''
 
 
     node6:
-      name: s3-vm1
-      hostname: s3-vm1          
-      site: UTAH
+      name: duke-1
+      hostname: duke-1
+      site: KANS
       worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_debian_12
+        os: default_rocky_9
       persistent_storage:
         volume: {}
       pci:
@@ -394,16 +499,16 @@ site_topology_nodes:
             model: NIC_Basic 
             interfaces:
               iface1:
-                device: eth1   
+                device: eth1
                 connection: conn-eth1
-                binding: s3_layer2   
+                binding: duke_internal   
                 ipv4:
-                  address: 192.168.203.216/24  
-                  gateway: 192.168.203.1
+                  address: 192.168.202.12/24  
+                  gateway: 192.168.202.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:203::216/64'
-                  gateway: '2001:db8:1234:203::1'
+                  address: '2001:db8:1234:202::12/64'
+                  gateway: '2001:db8:1234:202::1'
                   dns: '2001:4860:4860::8888'
           nic2:
             name: nic2
@@ -412,33 +517,41 @@ site_topology_nodes:
               iface1:
                 device: eth2
                 connection: conn-eth2
-                binding: s3_layer3
+                binding: duke_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: duke_l3_v6
                 ipv4: {}
                 ipv6: {}
       specific:
         openstack: {}
         ansible:
-          control: 'false'   # Managed node
-          management_network: 's3_layer3' # Ansible management network
+          control: 'false'   # Ansible control node
+          management_network: 'duke_l3_v4' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
-          mode: ''
-
-
+          mode: 'disabled'
 
 
 
     node7:
-      name: s1-vm2
-      hostname: s1-vm2
-      site: WASH
+      name: ncsu-1
+      hostname: ncsu-1
+      site: PSC
       worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_24
+        os: default_rocky_9
       persistent_storage:
         volume: {}
       pci:
@@ -454,14 +567,14 @@ site_topology_nodes:
               iface1:
                 device: eth1
                 connection: conn-eth1
-                binding: s1_layer2   
+                binding: ncsu_internal   
                 ipv4:
-                  address: 192.168.201.217/24  
-                  gateway: 192.168.201.1
+                  address: 192.168.204.12/24  
+                  gateway: 192.168.204.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:201::217/64'
-                  gateway: '2001:db8:1234:201::1'
+                  address: '2001:db8:1234:204::12/64'
+                  gateway: '2001:db8:1234:204::1'
                   dns: '2001:4860:4860::8888'
           nic2:
             name: nic2
@@ -470,29 +583,41 @@ site_topology_nodes:
               iface1:
                 device: eth2
                 connection: conn-eth2
-                binding: s1_layer3
+                binding: ncsu_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: ncsu_l3_v6
                 ipv4: {}
                 ipv6: {}
       specific:
         openstack: {}
         ansible:
-          control: 'false'   # Managed node
-          management_network: 's1_layer3' # Ansible management network
+          control: 'false'   # Ansible control node
+          management_network: 'ncsu_l3_v4' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
-          mode: ''
+          mode: 'disabled'
+
+
 
     node8:
-      name: s2-vm2
-      hostname: s2-vm2          
-      site: ATLA
+      name: unc-1
+      hostname: unc-1
+      site: MAX
       worker: ''
       capacity:
         cpu: 4                
         ram: 16              
         disk: 10             
-        os: default_ubuntu_20
+        os: default_rocky_9
       persistent_storage:
         volume: {}
       pci:
@@ -501,6 +626,7 @@ site_topology_nodes:
         gpu: {}
         nvme: {}
         network:
+
           nic1:
             name: nic1
             model: NIC_Basic 
@@ -508,68 +634,13 @@ site_topology_nodes:
               iface1:
                 device: eth1
                 connection: conn-eth1
-                binding: s2_layer2   
+                binding: unc_internal   
                 ipv4:
-                  address: 192.168.202.218/24  
-                  gateway: 192.168.202.1
-                  dns: 8.8.8.8
-                ipv6:
-                  address: '2001:db8:1234:202::218/64'
-                  gateway: '2001:db8:1234:202::1'
-                  dns: '2001:4860:4860::8888'
-          nic2:
-            name: nic2
-            model: NIC_Basic
-            interfaces:
-              iface1:
-                device: eth2
-                connection: conn-eth2
-                binding: s2_layer3
-                ipv4: {}
-                ipv6: {}
-      specific:
-        openstack: {}
-        ansible:
-          control: 'false'   # Managed node
-          management_network: 's2_layer3' # Ansible management network
-          role: ''
-        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        selinux: 
-          mode: ''
-
-
-    node9:
-      name: s3-vm2
-      hostname: s3-vm2
-      site: UTAH
-      worker: ''
-      capacity:
-        cpu: 4                
-        ram: 16              
-        disk: 10             
-        os: default_debian_11
-      persistent_storage:
-        volume: {}
-      pci:
-        dpu: {}
-        fpga: {}
-        gpu: {}
-        nvme: {}
-        network:
-          nic1:
-            name: nic1
-            model: NIC_Basic 
-            interfaces:
-              iface1:
-                device: eth1   
-                connection: conn-eth1
-                binding: s3_layer2   
-                ipv4:
-                  address: 192.168.203.219/24  
+                  address: 192.168.203.12/24  
                   gateway: 192.168.203.1
                   dns: 8.8.8.8
                 ipv6:
-                  address: '2001:db8:1234:203::219/64'
+                  address: '2001:db8:1234:203::12/64'
                   gateway: '2001:db8:1234:203::1'
                   dns: '2001:4860:4860::8888'
           nic2:
@@ -579,19 +650,28 @@ site_topology_nodes:
               iface1:
                 device: eth2
                 connection: conn-eth2
-                binding: s3_layer3
+                binding: unc_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: unc_l3_v6
                 ipv4: {}
                 ipv6: {}
       specific:
         openstack: {}
         ansible:
-          control: 'false'   # Managed node
-          management_network: 's3_layer3' # Ansible management network
+          control: 'false'   # Ansible control node
+          management_network: 'unc_l3_v4' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
-          mode: ''
-
+          mode: 'disabled'
 
 
 
@@ -604,7 +684,17 @@ site_topology_nodes:
 site_topology_networks:
   networks:
     net1:
-      name: s1_s2
+      name: renci_duke
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 192.168.11.0/24
+          gateway: 192.168.11.1
+        ipv6:
+          address: '2001:db8:1234:11::/64'
+          gateway: '2001:db8:1234:11::1'
+    net2:
+      name: duke_ncsu
       type: L2STS
       subnet:
         ipv4:
@@ -613,8 +703,8 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:12::/64'
           gateway: '2001:db8:1234:12::1'
-    net2:
-      name: s1_s3
+    net3:
+      name: ncsu_unc
       type: L2STS
       subnet:
         ipv4:
@@ -623,18 +713,18 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:13::/64'
           gateway: '2001:db8:1234:13::1'
-    net3:
-      name: s2_s3
+    net4:
+      name: unc_renci
       type: L2STS
       subnet:
         ipv4:
-          address: 192.168.23.0/24
-          gateway: 192.168.23.1
+          address: 192.168.14.0/24
+          gateway: 192.168.14.1
         ipv6:
-          address: '2001:db8:1234:23::/64'
-          gateway: '2001:db8:1234:23::1'
-    net4:
-      name: s1_layer2
+          address: '2001:db8:1234:14::/64'
+          gateway: '2001:db8:1234:14::1'
+    net5:
+      name: renci_internal
       type: L2Bridge
       subnet:
         ipv4:
@@ -643,8 +733,8 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:201::/64'
           gateway: '2001:db8:1234:201::1'
-    net5:
-      name: s2_layer2
+    net6:
+      name: duke_internal
       type: L2Bridge
       subnet:
         ipv4:
@@ -653,8 +743,8 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:202::/64'
           gateway: '2001:db8:1234:202::1'
-    net6:
-      name: s3_layer2
+    net7:
+      name: unc_internal
       type: L2Bridge
       subnet:
         ipv4:
@@ -663,17 +753,47 @@ site_topology_networks:
         ipv6:
           address: '2001:db8:1234:203::/64'
           gateway: '2001:db8:1234:203::1'
-    net7:
-      name: s1_layer3
-      type: IPv4
-      subnet: {}
     net8:
-      name: s2_layer3
+      name: ncsu_internal
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.204.0/24
+          gateway: 192.168.204.1
+        ipv6:
+          address: '2001:db8:1234:204::/64'
+          gateway: '2001:db8:1234:204::1'
+    net9:
+      name: renci_l3_v4
       type: IPv4
       subnet: {}
-    net9:
-      name: s3_layer3
+    net10:
+      name: duke_l3_v4
       type: IPv4
+      subnet: {}
+    net11:
+      name: unc_l3_v4
+      type: IPv4
+      subnet: {}
+    net12:
+      name: ncsu_l3_v4
+      type: IPv4
+      subnet: {}
+    net13:
+      name: renci_l3_v6
+      type: IPv6
+      subnet: {}
+    net14:
+      name: duke_l3_v6
+      type: IPv6
+      subnet: {}
+    net15:
+      name: unc_l3_v6
+      type: IPv6
+      subnet: {}
+    net16:
+      name: ncsu_l3_v6
+      type: IPv6
       subnet: {}
 
 # Facility Port definitions 
