@@ -21,7 +21,6 @@ site_topology_nodes:
           nic1:
             name: nic1       
             model: NIC_Basic
-            scop
             interfaces:
               iface1:
                 device: eth1           
