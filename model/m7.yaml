@@ -20,7 +20,8 @@ site_topology_nodes:
         network:
           nic1:
             name: nic1       
-            model: NIC_Basic 
+            model: NIC_Basic
+            scop
             interfaces:
               iface1:
                 device: eth1           
@@ -33,7 +34,7 @@ site_topology_nodes:
                 ipv6:
                   address: '2001:db8:1234:12::211/64'
                   gateway: '2001:db8:1234:12::1'
-                  dns: '2001:4860:4860::8888'
+                  dns: '2001:4860:4860::8888'    
           nic2:
             name: nic2
             model: NIC_Basic
@@ -80,6 +81,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'true'   # Ansible control node
+          management_network: 's1_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -165,6 +167,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's2_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -251,22 +254,18 @@ site_topology_nodes:
         openstack:  {}
         ansible:
           control: 'false'   # Managed node
-          role: ''
+          management_network: '' # Ansible management network
+          role: 's3_layer3'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
 
 
-#
-# Host nodes are required to be located on a host other than the bridge nodes (above)
-# These nodes can be distributed across any other host, or all hosted on the same host, 
-# provided it is not the bridge1, bridge2 or bridge3 host.
-# 
 
     node4:
-      name: s1-vm              
-      hostname: s1-vm          
+      name: s1-vm1
+      hostname: s1-vm1
       site: WASH
       worker: ''
       capacity:
@@ -312,14 +311,15 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's1_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
     node5:
-      name: s2-vm             
-      hostname: s2-vm          
+      name: s2-vm1
+      hostname: s2-vm1          
       site: ATLA
       worker: ''
       capacity:
@@ -365,15 +365,16 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
-          role: ''
+          management_network: '' # Ansible management network
+          role: 's2_layer3'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
 
 
     node6:
-      name: s3-vm            
-      hostname: s3-vm          
+      name: s3-vm1
+      hostname: s3-vm1          
       site: UTAH
       worker: ''
       capacity:
@@ -419,10 +420,180 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's3_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
+
+
+
+
+
+    node7:
+      name: s1-vm2
+      hostname: s1-vm2
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: s1_layer2   
+                ipv4:
+                  address: 192.168.201.217/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:201::217/64'
+                  gateway: '2001:db8:1234:201::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s1_layer3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 's1_layer3' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+    node8:
+      name: s2-vm2
+      hostname: s2-vm2          
+      site: ATLA
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_20
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: s2_layer2   
+                ipv4:
+                  address: 192.168.202.218/24  
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:202::218/64'
+                  gateway: '2001:db8:1234:202::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s2_layer3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 's2_layer3' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+
+    node9:
+      name: s3-vm2
+      hostname: s3-vm2
+      site: UTAH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_debian_11
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1   
+                connection: conn-eth1
+                binding: s3_layer2   
+                ipv4:
+                  address: 192.168.203.219/24  
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:203::219/64'
+                  gateway: '2001:db8:1234:203::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: s3_layer3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 's3_layer3' # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+
 
 
 # ==============================================================================

@@ -261,7 +261,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'net_local_2'  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
         
     # ══════════════════════════════════════════════════════════════════════════
     # Node 2: Minimal compute node
@@ -305,13 +311,19 @@ site_topology_nodes:
                   dns: ''
 
       specific:
-        openstack:
-          control: 'false'
-          network: 'false'
-          compute: 'true'    # Compute-only node
-          storage: 'false'
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_2'  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        
+        selinux: 
+          mode: 'permissive'
+          
     # ══════════════════════════════════════════════════════════════════════════
     # Node 3: Minimal compute node (no NICs configured)
     # ══════════════════════════════════════════════════════════════════════════
@@ -337,13 +349,19 @@ site_topology_nodes:
         network: {}        # No network interfaces configured
 
       specific:
-        openstack:
-          control: 'false'
-          network: 'false'
-          compute: 'true'
-          storage: 'false'
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_2'  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-
+        selinux: 
+          mode: 'permissive'
+          
 # ==============================================================================
 # NETWORKS CONFIGURATION
 # ==============================================================================

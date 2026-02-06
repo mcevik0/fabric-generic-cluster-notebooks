@@ -45,6 +45,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'true'   # Ansible control node
+          management_network: 'fabnetv4-1'  # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -96,6 +97,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 'fabnetv4-2'  # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 

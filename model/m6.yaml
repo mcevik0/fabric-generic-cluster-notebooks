@@ -29,6 +29,7 @@ site_topology_nodes:
           storage: 'false'
         ansible:
           control: 'true'
+          management_network: 'fabnetv4-1'  # Ansible management network
           role: 'webserver,loadbalancer'  # Multiple roles
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -64,6 +65,7 @@ site_topology_nodes:
           storage: 'false'
         ansible:
           control: 'false'
+          management_network: 'fabnetv4-2'  # Ansible management network
           role: 'database'  # Single role
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -99,6 +101,7 @@ site_topology_nodes:
           storage: 'false'
         ansible:
           control: 'false'
+          management_network: 'fabnetv4-3'  # Ansible management network
           role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -134,6 +137,7 @@ site_topology_nodes:
           storage: 'true'
         ansible:
           control: 'false'
+          management_network: 'fabnetv4-4'  # Ansible management network
           # No role specified - this is OK!
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 

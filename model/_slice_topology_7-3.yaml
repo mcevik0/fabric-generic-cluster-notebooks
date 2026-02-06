@@ -58,7 +58,13 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'fabnetv4ext'  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
         
     node2:
       name: lc-2              
@@ -90,11 +96,17 @@ site_topology_nodes:
                 ipv6: {}
       specific:
         openstack:           # OpenStack role assignments
-          control: 'true'    # Control plane node [STRING: 'true' or 'false']
-          network: 'true'    # Network services node
-          compute: 'false'   # Compute node (hypervisor)
-          storage: 'true'    # Storage services node
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'fabnetv4ext'  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
 
 # ==============================================================================
 # NETWORKS CONFIGURATION

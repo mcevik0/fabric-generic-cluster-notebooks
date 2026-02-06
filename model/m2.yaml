@@ -55,6 +55,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'true'    # Ansible control node
+          management_network: 'fabnetv4'  # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -115,6 +116,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'false'   # Managed node
+          management_network: 'fabnetv4'  # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 

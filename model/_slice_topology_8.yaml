@@ -154,7 +154,14 @@ site_topology_nodes:
           network: 'true'    # Network services node
           compute: 'false'   # Compute node (hypervisor)
           storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
         
 # ==============================================================================
 # NETWORKS CONFIGURATION

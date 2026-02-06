@@ -179,12 +179,19 @@ site_topology_nodes:
       # Added for a prototype OpenStack environment
       # This section will be re-visited for functionality
       specific:
-        openstack:
-          control: 'true'  # Acts as control plane
-          network: 'true'  # Manages network services
-          compute: 'false' # Not a compute node
-          storage: 'true'  # Provides storage services
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
         
     # VM node2
     node2:
@@ -224,12 +231,18 @@ site_topology_nodes:
                   dns: ''
 
       specific:
-        openstack:
-          control: 'false'
-          network: 'false'
-          compute: 'true'  # This is a compute node
-          storage: 'false'
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
         
     # VM node3
     node3:
@@ -253,13 +266,19 @@ site_topology_nodes:
         network: {}
 
       specific:
-        openstack:
-          control: 'false'
-          network: 'false'
-          compute: 'true'
-          storage: 'false'
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
-        
+        selinux: 
+          mode: 'permissive'
+          
 # Network definitions 
 site_topology_networks:
   networks:
