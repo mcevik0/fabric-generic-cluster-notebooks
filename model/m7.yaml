@@ -20,7 +20,8 @@ site_topology_nodes:
         network:
           nic1:
             name: nic1       
-            model: NIC_Basic 
+            model: NIC_Basic
+            scop
             interfaces:
               iface1:
                 device: eth1           
@@ -33,7 +34,7 @@ site_topology_nodes:
                 ipv6:
                   address: '2001:db8:1234:12::211/64'
                   gateway: '2001:db8:1234:12::1'
-                  dns: '2001:4860:4860::8888'
+                  dns: '2001:4860:4860::8888'    
           nic2:
             name: nic2
             model: NIC_Basic
@@ -80,6 +81,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'true'   # Ansible control node
+          management_network: 's1_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -165,6 +167,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's2_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -251,7 +254,8 @@ site_topology_nodes:
         openstack:  {}
         ansible:
           control: 'false'   # Managed node
-          role: ''
+          management_network: '' # Ansible management network
+          role: 's3_layer3'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
@@ -307,6 +311,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's1_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -360,7 +365,8 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
-          role: ''
+          management_network: '' # Ansible management network
+          role: 's2_layer3'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
@@ -414,6 +420,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's3_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -471,6 +478,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's1_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -524,6 +532,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's2_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
@@ -578,6 +587,7 @@ site_topology_nodes:
         openstack: {}
         ansible:
           control: 'false'   # Managed node
+          management_network: 's3_layer3' # Ansible management network
           role: ''
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 

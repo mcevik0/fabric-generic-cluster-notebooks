@@ -64,6 +64,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'true'   # Ansible control node
+          management_network: 'net_local_1'  # Ansible management network
           role: 'webserver,loadbalancer'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: {}
@@ -129,6 +130,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
           role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         #selinux: 
@@ -192,6 +194,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
           role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux:
@@ -255,6 +258,7 @@ site_topology_nodes:
           storage: 'true'    # Storage services node
         ansible:
           control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
           role: 'webserver'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
