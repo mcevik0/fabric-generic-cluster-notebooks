@@ -30,7 +30,7 @@ site_topology_nodes:
         ansible:
           control: 'true'
           management_network: 'fabnetv4-1'  # Ansible management network
-          role: 'webserver,loadbalancer'  # Multiple roles
+          role: 'monitoring,webserver,loadbalancer'  # Multiple roles
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''

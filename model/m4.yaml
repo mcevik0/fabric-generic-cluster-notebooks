@@ -46,7 +46,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 'fabnetv4-1'  # Ansible management network
-          role: ''
+          role: 'monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''

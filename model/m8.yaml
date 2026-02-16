@@ -91,7 +91,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 'renci_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-renci,monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -190,7 +190,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'duke_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-duke,monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -288,7 +288,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'ncsu_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-ncsu'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -386,21 +386,10 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'unc_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-unc'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -468,7 +457,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 'renci_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-renci'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -535,7 +524,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'duke_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-duke'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -601,7 +590,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'ncsu_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-ncsu'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -668,7 +657,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'unc_l3_v4' # Ansible management network
-          role: ''
+          role: 'ben-unc'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'

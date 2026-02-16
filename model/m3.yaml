@@ -81,7 +81,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 's1_layer3'  # Ansible management network
-          role: ''
+          role: 'monitoring'
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
         selinux: 
           mode: ''
@@ -167,7 +167,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           management_network: 's2_layer3'  # Ansible management network
-          role: ''
+          role: 'monitoring'
         postboot: 'yes | sudo apt-get -y update && sudo apt-get upgrade -y; yes | sudo apt-get -y install openvswitch-switch openvswitch-common net-tools traceroute'
         selinux: 
           mode: ''

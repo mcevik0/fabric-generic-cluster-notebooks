@@ -65,7 +65,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 'net_local_1'  # Ansible management network
-          role: 'webserver,loadbalancer'
+          role: 'monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: {}
         
@@ -131,7 +131,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           management_network: 'net_local_1'  # Ansible management network
-          role: 'webserver'
+          role: 'loadbalancer,database,monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         #selinux: 
         #  mode: ''
