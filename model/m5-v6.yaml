@@ -33,7 +33,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 'l3-FABNetv6-1'  # Ansible management network
-          role: ''
+          role: 'monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
@@ -72,7 +72,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Managed node
           management_network: 'l3-FABNetv6-2'  # Ansible management network
-          role: ''
+          role: 'monitoring'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''

@@ -37,7 +37,7 @@ site_topology_nodes:
         ansible:
           control: 'true'   # Ansible control node
           management_network: 'l3-FABNetv4-1'  # Ansible management network
-          role: 'webserver,loadbalancer'
+          role: 'monitoring,compute'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -79,7 +79,7 @@ site_topology_nodes:
         ansible:
           control: 'false'
           management_network: 'l3-FABNetv4-2'  # Ansible management network
-          role: 'database'
+          role: 'monitoring,compute'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
@@ -122,7 +122,7 @@ site_topology_nodes:
         ansible:
           control: 'false'   # Ansible control node
           management_network: 'l3-FABNetv4-3'  # Ansible management network
-          role: 'webserver'
+          role: 'compute'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: ''
@@ -165,7 +165,7 @@ site_topology_nodes:
         ansible:
           control: 'false'
           management_network: ''  # Ansible management network
-          role: ''
+          role: 'compute'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'permissive'
@@ -208,6 +208,7 @@ site_topology_nodes:
         ansible:
           control: 'false'
           management_network: ''
+          role: 'compute'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'disabled'
@@ -250,6 +251,7 @@ site_topology_nodes:
         ansible:
           control: 'false'
           management_network: ''
+          role: 'compute'
         postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
         selinux: 
           mode: 'enforcing'
