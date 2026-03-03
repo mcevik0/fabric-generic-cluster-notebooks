@@ -1,0 +1,1423 @@
+site_topology_nodes:
+  nodes:
+    node1:
+      name: ampath1
+      hostname: ampath1
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: ampath_sax_1
+                ipv4:
+                  address: 10.12.1.11/24  
+                  gateway: 10.12.1.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1012:1::11/64'
+                  gateway: '2001:db8:1012:1::254'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ampath_1
+                ipv4:
+                  address: 192.168.11.11/24  
+                  gateway: 192.168.11.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:11::11/64'
+                  gateway: '2001:db8:c0a8:11::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: ampath_3
+                ipv4:
+                  address: 192.168.13.11/24  
+                  gateway: 192.168.13.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:13::11/64'
+                  gateway: '2001:db8:c0a8:13::254'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4  
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth4       
+                connection: conn-eth4  
+                binding: ampath_4
+                ipv4:
+                  address: 192.168.14.11/24  
+                  gateway: 192.168.14.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:14::11/64'
+                  gateway: '2001:db8:c0a8:14::254'
+                  dns: '2001:4860:4860::8888'
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: ampath_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'ampath_l3_v4' # Ansible management network
+          role: 'ampath,monitoring'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+    node2:
+      name: ampath2
+      hostname: ampath2
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_sax_2
+                ipv4:
+                  address: 10.12.2.12/24
+                  gateway: 10.12.2.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1012:2::12/64'
+                  gateway: '2001:db8:1012:2::254'
+                  dns: '2001:4860:4860::8888'
+
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ampath_1
+                ipv4:
+                  address: 192.168.11.12/24
+                  gateway: 192.168.11.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:11::12/64'
+                  gateway: '2001:db8:c0a8:11::254'
+                  dns: '2001:4860:4860::8888'
+
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: ampath_2
+                ipv4:
+                  address: 192.168.12.12/24
+                  gateway: 192.168.12.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:12::12/64'
+                  gateway: '2001:db8:c0a8:12::254'
+                  dns: '2001:4860:4860::8888'
+
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: ampath_5
+                ipv4:
+                  address: 192.168.15.12/24
+                  gateway: 192.168.15.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:15::12/64'
+                  gateway: '2001:db8:c0a8:15::254'
+                  dns: '2001:4860:4860::8888'
+
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: ampath_l3_v4
+                ipv4: {}
+                ipv6: {}
+
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'ampath_l3_v4'
+          role: 'ampath'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+
+    node3:
+      name: ampath3
+      hostname: ampath3
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_2
+                ipv4:
+                  address: 192.168.12.13/24
+                  gateway: 192.168.12.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:12::13/64'
+                  gateway: '2001:db8:c0a8:12::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ampath_3
+                ipv4:
+                  address: 192.168.13.13/24
+                  gateway: 192.168.13.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:13::13/64'
+                  gateway: '2001:db8:c0a8:13::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: ampath_6
+                ipv4:
+                  address: 192.168.16.13/24
+                  gateway: 192.168.16.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:16::13/64'
+                  gateway: '2001:db8:c0a8:16::254'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: ampath_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'ampath_l3_v4'
+          role: 'ampath'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node4:
+      name: sax1
+      hostname: sax1
+      site: MICH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_sax_1
+                ipv4:
+                  address: 10.12.1.10/24
+                  gateway: 10.12.1.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1012:1::10/64'
+                  gateway: '2001:db8:1012:1::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: sax_tenet_1
+                ipv4:
+                  address: 10.23.1.10/24
+                  gateway: 10.23.1.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1023:1::10/64'
+                  gateway: '2001:db8:1023:1::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: sax_1
+                ipv4:
+                  address: 192.168.21.11/24
+                  gateway: 192.168.21.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:21::11/64'
+                  gateway: '2001:db8:c0a8:21::254'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: sax_2
+                ipv4:
+                  address: 192.168.22.11/24
+                  gateway: 192.168.22.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:22::11/64'
+                  gateway: '2001:db8:c0a8:22::254'
+                  dns: '2001:4860:4860::8888'
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: sax_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'
+          management_network: 'sax_l3_v4'
+          role: 'sax,monitoring'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node5:
+      name: sax2
+      hostname: sax2
+      site: MICH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_sax_2
+                ipv4:
+                  address: 10.12.2.10/24
+                  gateway: 10.12.2.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1012:2::10/64'
+                  gateway: '2001:db8:1012:2::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: sax_tenet_2
+                ipv4:
+                  address: 10.23.2.10/24
+                  gateway: 10.23.2.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1023:2::10/64'
+                  gateway: '2001:db8:1023:2::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: sax_1
+                ipv4:
+                  address: 192.168.21.12/24
+                  gateway: 192.168.21.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:21::12/64'
+                  gateway: '2001:db8:c0a8:21::254'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: sax_3
+                ipv4:
+                  address: 192.168.23.12/24
+                  gateway: 192.168.23.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:23::12/64'
+                  gateway: '2001:db8:c0a8:23::254'
+                  dns: '2001:4860:4860::8888'
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: sax_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'sax_l3_v4'
+          role: 'sax'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node6:
+      name: tenet1
+      hostname: tenet1
+      site: PRIN
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: sax_tenet_1
+                ipv4:
+                  address: 10.23.1.11/24
+                  gateway: 10.23.1.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1023:1::11/64'
+                  gateway: '2001:db8:1023:1::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: tenet_1
+                ipv4:
+                  address: 192.168.31.11/24
+                  gateway: 192.168.31.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:31::11/64'
+                  gateway: '2001:db8:c0a8:31::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: tenet_2
+                ipv4:
+                  address: 192.168.32.11/24
+                  gateway: 192.168.32.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:32::11/64'
+                  gateway: '2001:db8:c0a8:32::254'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: tenet_3
+                ipv4:
+                  address: 192.168.33.11/24
+                  gateway: 192.168.33.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:33::11/64'
+                  gateway: '2001:db8:c0a8:33::254'
+                  dns: '2001:4860:4860::8888'
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: tenet_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'
+          management_network: 'tenet_l3_v4'
+          role: 'tenet,monitoring'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node7:
+      name: tenet2
+      hostname: tenet2
+      site: PRIN
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: sax_tenet_2
+                ipv4:
+                  address: 10.23.2.11/24
+                  gateway: 10.23.2.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1023:2::11/64'
+                  gateway: '2001:db8:1023:2::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: tenet_1
+                ipv4:
+                  address: 192.168.31.12/24
+                  gateway: 192.168.31.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:31::12/64'
+                  gateway: '2001:db8:c0a8:31::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: tenet_4
+                ipv4:
+                  address: 192.168.34.12/24
+                  gateway: 192.168.34.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:34::12/64'
+                  gateway: '2001:db8:c0a8:34::254'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: tenet_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'tenet_l3_v4'
+          role: 'tenet'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node8:
+      name: tenet3
+      hostname: tenet3
+      site: PRIN
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: tenet_2
+                ipv4:
+                  address: 192.168.32.13/24
+                  gateway: 192.168.32.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:32::13/64'
+                  gateway: '2001:db8:c0a8:32::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: tenet_5
+                ipv4:
+                  address: 192.168.35.13/24
+                  gateway: 192.168.35.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:35::13/64'
+                  gateway: '2001:db8:c0a8:35::254'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: tenet_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'tenet_l3_v4'
+          role: 'tenet'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node9:
+      name: h1
+      hostname: h1
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_4
+                ipv4:
+                  address: 192.168.14.14/24
+                  gateway: 192.168.14.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:14::14/64'
+                  gateway: '2001:db8:c0a8:14::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ampath_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'ampath_l3_v4'
+          role: 'ampath'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node10:
+      name: h2
+      hostname: h2
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_5
+                ipv4:
+                  address: 192.168.15.15/24
+                  gateway: 192.168.15.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:15::15/64'
+                  gateway: '2001:db8:c0a8:15::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ampath_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'ampath_l3_v4'
+          role: 'ampath'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node11:
+      name: h3
+      hostname: h3
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ampath_6
+                ipv4:
+                  address: 192.168.16.16/24
+                  gateway: 192.168.16.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:16::16/64'
+                  gateway: '2001:db8:c0a8:16::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ampath_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'ampath_l3_v4'
+          role: 'ampath'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node12:
+      name: h4
+      hostname: h4
+      site: MICH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: sax_2
+                ipv4:
+                  address: 192.168.22.13/24
+                  gateway: 192.168.22.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:22::13/64'
+                  gateway: '2001:db8:c0a8:22::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: sax_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'sax_l3_v4'
+          role: 'sax'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node13:
+      name: h5
+      hostname: h5
+      site: MICH
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: sax_3
+                ipv4:
+                  address: 192.168.23.14/24
+                  gateway: 192.168.23.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:23::14/64'
+                  gateway: '2001:db8:c0a8:23::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: sax_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'sax_l3_v4'
+          role: 'sax'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node14:
+      name: h6
+      hostname: h6
+      site: PRIN
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: tenet_3
+                ipv4:
+                  address: 192.168.33.14/24
+                  gateway: 192.168.33.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:33::14/64'
+                  gateway: '2001:db8:c0a8:33::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: tenet_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'tenet_l3_v4'
+          role: 'tenet'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+    node15:
+      name: h7
+      hostname: h7
+      site: PRIN
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: tenet_4
+                ipv4:
+                  address: 192.168.34.15/24
+                  gateway: 192.168.34.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:34::15/64'
+                  gateway: '2001:db8:c0a8:34::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: tenet_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'tenet_l3_v4'
+          role: 'tenet'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+
+    node18:
+      name: h8
+      hostname: h8
+      site: PRIN
+      worker: ''
+      capacity:
+        cpu: 4
+        ram: 16
+        disk: 10
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: tenet_5
+                ipv4:
+                  address: 192.168.35.16/24
+                  gateway: 192.168.35.254
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:c0a8:35::16/64'
+                  gateway: '2001:db8:c0a8:35::254'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: tenet_l3_v4
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'
+          management_network: 'tenet_l3_v4'
+          role: 'tenet'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux:
+          mode: 'disabled'
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+
+
+site_topology_networks:
+  networks:
+    net1:
+      name: ampath_sax_1
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 10.12.1.0/24
+          gateway: 10.12.1.254
+        ipv6:
+          address: '2001:db8:1012:1::/64'
+          gateway: '2001:db8:1012:1::254'
+    net2:
+      name: ampath_sax_2
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 10.12.2.0/24
+          gateway: 10.12.2.254
+        ipv6:
+          address: '2001:db8:1012:2::/64'
+          gateway: '2001:db8:1012:2::254'
+    net3:
+      name: sax_tenet_1
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 10.23.1.0/24
+          gateway: 10.23.1.254
+        ipv6:
+          address: '2001:db8:1023:1::/64'
+          gateway: '2001:db8:1023:1::254'
+    net4:
+      name: sax_tenet_2
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 10.23.2.0/24
+          gateway: 10.23.2.254
+        ipv6:
+          address: '2001:db8:1023:2::/64'
+          gateway: '2001:db8:1023:2::254'
+    net5:
+      name: ampath_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.11.0/24
+          gateway: 192.168.11.254
+        ipv6:
+          address: '2001:db8:c0a8:11::/64'
+          gateway: '2001:db8:c0a8:11::254'
+    net6:
+      name: ampath_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.12.0/24
+          gateway: 192.168.12.254
+        ipv6:
+          address: '2001:db8:c0a8:12::/64'
+          gateway: '2001:db8:c0a8:12::254'
+    net7:
+      name: ampath_3
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.13.0/24
+          gateway: 192.168.13.254
+        ipv6:
+          address: '2001:db8:c0a8:13::/64'
+          gateway: '2001:db8:c0a8:13::254'
+    net8:
+      name: ampath_4
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.14.0/24
+          gateway: 192.168.14.254
+        ipv6:
+          address: '2001:db8:c0a8:14::/64'
+          gateway: '2001:db8:c0a8:14::254'
+    net9:
+      name: ampath_5
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.15.0/24
+          gateway: 192.168.15.254
+        ipv6:
+          address: '2001:db8:c0a8:15::/64'
+          gateway: '2001:db8:c0a8:15::254'
+    net10:
+      name: ampath_6
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.16.0/24
+          gateway: 192.168.16.254
+        ipv6:
+          address: '2001:db8:c0a8:16::/64'
+          gateway: '2001:db8:c0a8:16::254'
+    net11:
+      name: sax_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.21.0/24
+          gateway: 192.168.21.254
+        ipv6:
+          address: '2001:db8:c0a8:21::/64'
+          gateway: '2001:db8:c0a8:21::254'
+    net12:
+      name: sax_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.22.0/24
+          gateway: 192.168.22.254
+        ipv6:
+          address: '2001:db8:c0a8:22::/64'
+          gateway: '2001:db8:c0a8:22::254'
+    net13:
+      name: sax_3
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.23.0/24
+          gateway: 192.168.23.254
+        ipv6:
+          address: '2001:db8:c0a8:23::/64'
+          gateway: '2001:db8:c0a8:23::254'
+    net14:
+      name: tenet_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.31.0/24
+          gateway: 192.168.31.254
+        ipv6:
+          address: '2001:db8:c0a8:31::/64'
+          gateway: '2001:db8:c0a8:31::254'
+    net15:
+      name: tenet_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.32.0/24
+          gateway: 192.168.32.254
+        ipv6:
+          address: '2001:db8:c0a8:32::/64'
+          gateway: '2001:db8:c0a8:32::254'
+    net16:
+      name: tenet_3
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.33.0/24
+          gateway: 192.168.33.254
+        ipv6:
+          address: '2001:db8:c0a8:33::/64'
+          gateway: '2001:db8:c0a8:33::254'
+    net17:
+      name: tenet_4
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.34.0/24
+          gateway: 192.168.34.254
+        ipv6:
+          address: '2001:db8:c0a8:34::/64'
+          gateway: '2001:db8:c0a8:34::254'
+    net18:
+      name: tenet_5
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.35.0/24
+          gateway: 192.168.35.254
+        ipv6:
+          address: '2001:db8:c0a8:35::/64'
+          gateway: '2001:db8:c0a8:35::254'
+    net19:
+      name: ampath_l3_v4
+      type: IPv4
+      subnet: {}
+    net20:
+      name: sax_l3_v4
+      type: IPv4
+      subnet: {}
+    net21:
+      name: tenet_l3_v4
+      type: IPv4
+      subnet: {}
+#    net22:
+#      name: ampath_l3_v6
+#      type: IPv6
+#      subnet: {}
+#    net23:
+#      name: sax_l3_v6
+#      type: IPv6
+#      subnet: {}
+#    net24:
+#      name: tenet_l3_v6
+#      type: IPv6
+#      subnet: {}
+
+
+#site_topology_facility_ports:
+#  facility_ports:
+#    fp1:
+#      name: 'SENSE-MGHPCC'
+#      site: MASS
+#      vlan: 3919
+#      binding: ampath_1
+#    fp2:
+#      name: 'AmLight-EXP-Layer2-FIU'
+#      site: FIU
+#      vlan: 4016
+#      binding: ampath_2
+
