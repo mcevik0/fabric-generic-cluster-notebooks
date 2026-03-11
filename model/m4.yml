@@ -1,0 +1,212 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 2
+# Total Networks: 4
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 40 GB
+#      • Persistent Storage: {}
+#  ├─ GPUs:
+#    └─ tesla_t4 (GPU_TeslaT4)
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: fabnetv4-1, IPv4: 
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: fabnetv4ext-1, IPv4: 
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 40 GB
+#      • Persistent Storage: {}
+#  ├─ GPUs:
+#    └─ tesla_t4 (GPU_TeslaT4)
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: fabnetv4-2, IPv4: 
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: fabnetv4ext-2, IPv4: 
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 fabnetv4-1
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# 📡 fabnetv4ext-1
+#    Type: IPv4Ext
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# 📡 fabnetv4-2
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# 📡 fabnetv4ext-2
+#    Type: IPv4Ext
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: fabnetv4-1
+#    └── lc-1  (N/A)
+#
+# Network: fabnetv4ext-1
+#    └── lc-1  (N/A)
+#
+# Network: fabnetv4-2
+#    └── lc-2  (N/A)
+#
+# Network: fabnetv4ext-2
+#    └── lc-2  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: MAX
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 40             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: 
+          gpu1:
+            name: tesla_t4
+            model: GPU_TeslaT4
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4-1
+                ipv4: {}
+                ipv6: {}
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: fabnetv4ext-1
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'fabnetv4-1'  # Ansible management network
+          role: 'monitoring'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+          
+    node2:
+      name: lc-2              
+      hostname: lc-2          
+      site: MASS
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 40               
+        os: default_ubuntu_24 
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: 
+          gpu1:
+            name: tesla_t4
+            model: GPU_TeslaT4
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4-2
+                ipv4: {}
+                ipv6: {}
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: fabnetv4ext-2
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'fabnetv4-2'  # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: fabnetv4-1
+      type: IPv4
+      subnet: {}
+    net2:
+      name: fabnetv4ext-1
+      type: IPv4Ext
+      subnet: {}
+    net3:
+      name: fabnetv4-2
+      type: IPv4
+      subnet: {}
+    net4:
+      name: fabnetv4ext-2
+      type: IPv4Ext
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
