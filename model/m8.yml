@@ -1,0 +1,1094 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 8
+# Total Networks: 16
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: duke-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_internal, IPv4: 192.168.202.12/24, IPv6: 2001:db8:1234:202::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_l3_v4, IPv4: 
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_l3_v6, IPv4: 
+#
+#📸 Node: duke-br
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_duke, IPv4: 192.168.11.12/24, IPv6: 2001:db8:1234:11::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_ncsu, IPv4: 192.168.12.11/24, IPv6: 2001:db8:1234:12::11/64
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_internal, IPv4: 192.168.202.11/24, IPv6: 2001:db8:1234:202::11/64
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_l3_v4, IPv4: 
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_l3_v6, IPv4: 
+#
+#📸 Node: ncsu-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_internal, IPv4: 192.168.204.12/24, IPv6: 2001:db8:1234:204::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_l3_v4, IPv4: 
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_l3_v6, IPv4: 
+#
+#📸 Node: ncsu-br
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: duke_ncsu, IPv4: 192.168.12.12/24, IPv6: 2001:db8:1234:12::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_unc, IPv4: 192.168.13.11/24, IPv6: 2001:db8:1234:13::11/64
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_internal, IPv4: 192.168.204.11/24, IPv6: 2001:db8:1234:204::11/64
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_l3_v4, IPv4: 
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_l3_v6, IPv4: 
+#
+#📸 Node: renci-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_internal, IPv4: 192.168.201.12/24, IPv6: 2001:db8:1234:201::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_l3_v4, IPv4: 
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_l3_v6, IPv4: 
+#
+#📸 Node: renci-br
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_duke, IPv4: 192.168.11.11/24, IPv6: 2001:db8:1234:11::11/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_renci, IPv4: 192.168.14.12/24, IPv6: 2001:db8:1234:14::12/64
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_internal, IPv4: 192.168.201.11/24, IPv6: 2001:db8:1234:201::11/64
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_l3_v4, IPv4: 
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: renci_l3_v6, IPv4: 
+#
+#📸 Node: unc-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_internal, IPv4: 192.168.203.12/24, IPv6: 2001:db8:1234:203::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_l3_v4, IPv4: 
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_l3_v6, IPv4: 
+#
+#📸 Node: unc-br
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: ncsu_unc, IPv4: 192.168.13.12/24, IPv6: 2001:db8:1234:13::12/64
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_renci, IPv4: 192.168.14.11/24, IPv6: 2001:db8:1234:14::11/64
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_internal, IPv4: 192.168.203.11/24, IPv6: 2001:db8:1234:203::11/64
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_l3_v4, IPv4: 
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: unc_l3_v6, IPv4: 
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 renci_duke
+#    Type: L2STS
+#    Subnet: IPv4: 192.168.11.0/24, IPv6: 2001:db8:1234:11::/64
+#    Gateway: IPv4: 192.168.11.1, IPv6: 2001:db8:1234:11::1
+#    Connected Nodes: 2
+#
+# 📡 duke_ncsu
+#    Type: L2STS
+#    Subnet: IPv4: 192.168.12.0/24, IPv6: 2001:db8:1234:12::/64
+#    Gateway: IPv4: 192.168.12.1, IPv6: 2001:db8:1234:12::1
+#    Connected Nodes: 2
+#
+# 📡 ncsu_unc
+#    Type: L2STS
+#    Subnet: IPv4: 192.168.13.0/24, IPv6: 2001:db8:1234:13::/64
+#    Gateway: IPv4: 192.168.13.1, IPv6: 2001:db8:1234:13::1
+#    Connected Nodes: 2
+#
+# 📡 unc_renci
+#    Type: L2STS
+#    Subnet: IPv4: 192.168.14.0/24, IPv6: 2001:db8:1234:14::/64
+#    Gateway: IPv4: 192.168.14.1, IPv6: 2001:db8:1234:14::1
+#    Connected Nodes: 2
+#
+# 📡 renci_internal
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:201::/64
+#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:201::1
+#    Connected Nodes: 2
+#
+# 📡 duke_internal
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.202.0/24, IPv6: 2001:db8:1234:202::/64
+#    Gateway: IPv4: 192.168.202.1, IPv6: 2001:db8:1234:202::1
+#    Connected Nodes: 2
+#
+# 📡 unc_internal
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.203.0/24, IPv6: 2001:db8:1234:203::/64
+#    Gateway: IPv4: 192.168.203.1, IPv6: 2001:db8:1234:203::1
+#    Connected Nodes: 2
+#
+# 📡 ncsu_internal
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.204.0/24, IPv6: 2001:db8:1234:204::/64
+#    Gateway: IPv4: 192.168.204.1, IPv6: 2001:db8:1234:204::1
+#    Connected Nodes: 2
+#
+# 📡 renci_l3_v4
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 duke_l3_v4
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 unc_l3_v4
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 ncsu_l3_v4
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 renci_l3_v6
+#    Type: IPv6
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 duke_l3_v6
+#    Type: IPv6
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 unc_l3_v6
+#    Type: IPv6
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 ncsu_l3_v6
+#    Type: IPv6
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: renci_duke
+#    └── renci-br  (192.168.11.11/24)
+#    └── duke-br  (192.168.11.12/24)
+#
+# Network: duke_ncsu
+#    └── duke-br  (192.168.12.11/24)
+#    └── ncsu-br  (192.168.12.12/24)
+#
+# Network: ncsu_unc
+#    └── ncsu-br  (192.168.13.11/24)
+#    └── unc-br  (192.168.13.12/24)
+#
+# Network: unc_renci
+#    └── renci-br  (192.168.14.12/24)
+#    └── unc-br  (192.168.14.11/24)
+#
+# Network: renci_internal
+#    └── renci-br  (192.168.201.11/24)
+#    └── renci-1  (192.168.201.12/24)
+#
+# Network: duke_internal
+#    └── duke-br  (192.168.202.11/24)
+#    └── duke-1  (192.168.202.12/24)
+#
+# Network: unc_internal
+#    └── unc-br  (192.168.203.11/24)
+#    └── unc-1  (192.168.203.12/24)
+#
+# Network: ncsu_internal
+#    └── ncsu-br  (192.168.204.11/24)
+#    └── ncsu-1  (192.168.204.12/24)
+#
+# Network: renci_l3_v4
+#    └── renci-br  (N/A)
+#    └── renci-1  (N/A)
+#
+# Network: duke_l3_v4
+#    └── duke-br  (N/A)
+#    └── duke-1  (N/A)
+#
+# Network: unc_l3_v4
+#    └── unc-br  (N/A)
+#    └── unc-1  (N/A)
+#
+# Network: ncsu_l3_v4
+#    └── ncsu-br  (N/A)
+#    └── ncsu-1  (N/A)
+#
+# Network: renci_l3_v6
+#    └── renci-br  (N/A)
+#    └── renci-1  (N/A)
+#
+# Network: duke_l3_v6
+#    └── duke-br  (N/A)
+#    └── duke-1  (N/A)
+#
+# Network: unc_l3_v6
+#    └── unc-br  (N/A)
+#    └── unc-1  (N/A)
+#
+# Network: ncsu_l3_v6
+#    └── ncsu-br  (N/A)
+#    └── ncsu-1  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: renci-br              
+      hostname: renci-br         
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: renci_duke   
+                ipv4:
+                  address: 192.168.11.11/24  
+                  gateway: 192.168.11.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:11::11/64'
+                  gateway: '2001:db8:1234:11::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: unc_renci
+                ipv4:
+                  address: 192.168.14.12/24  
+                  gateway: 192.168.14.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:14::12/64'
+                  gateway: '2001:db8:1234:14::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: renci_internal   
+                ipv4:
+                  address: 192.168.201.11/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:201::11/64'
+                  gateway: '2001:db8:1234:201::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: renci_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: renci_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'renci_l3_v4' # Ansible management network
+          role: 'ben-renci,monitoring'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+
+    node2:
+      name: duke-br              
+      hostname: duke-br         
+      site: KANS
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: renci_duke   
+                ipv4:
+                  address: 192.168.11.12/24  
+                  gateway: 192.168.11.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:11::12/64'
+                  gateway: '2001:db8:1234:11::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: duke_ncsu
+                ipv4:
+                  address: 192.168.12.11/24  
+                  gateway: 192.168.12.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:12::11/64'
+                  gateway: '2001:db8:1234:12::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: duke_internal   
+                ipv4:
+                  address: 192.168.202.11/24  
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:202::11/64'
+                  gateway: '2001:db8:1234:202::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: duke_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: duke_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'duke_l3_v4' # Ansible management network
+          role: 'ben-duke,monitoring'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+    node3:
+      name: ncsu-br              
+      hostname: ncsu-br         
+      site: PSC
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: duke_ncsu   
+                ipv4:
+                  address: 192.168.12.12/24  
+                  gateway: 192.168.12.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:12::12/64'
+                  gateway: '2001:db8:1234:12::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ncsu_unc
+                ipv4:
+                  address: 192.168.13.11/24  
+                  gateway: 192.168.13.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:13::11/64'
+                  gateway: '2001:db8:1234:13::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: ncsu_internal   
+                ipv4:
+                  address: 192.168.204.11/24  
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:204::11/64'
+                  gateway: '2001:db8:1234:204::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: ncsu_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: ncsu_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'ncsu_l3_v4' # Ansible management network
+          role: 'ben-ncsu'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+    node4:
+      name: unc-br              
+      hostname: unc-br         
+      site: MAX
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: ncsu_unc   
+                ipv4:
+                  address: 192.168.13.12/24  
+                  gateway: 192.168.13.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:13::12/64'
+                  gateway: '2001:db8:1234:13::1'
+                  dns: '2001:4860:4860::8888'    
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: unc_renci
+                ipv4:
+                  address: 192.168.14.11/24  
+                  gateway: 192.168.14.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:14::11/64'
+                  gateway: '2001:db8:1234:14::1'
+                  dns: '2001:4860:4860::8888'
+          nic3:
+            name: nic3     
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth3       
+                connection: conn-eth3  
+                binding: unc_internal   
+                ipv4:
+                  address: 192.168.203.11/24  
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:203::11/64'
+                  gateway: '2001:db8:1234:203::1'
+                  dns: '2001:4860:4860::8888'
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: unc_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: unc_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'unc_l3_v4' # Ansible management network
+          role: 'ben-unc'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+#
+#
+#
+
+
+    node5:
+      name: renci-1              
+      hostname: renci-1         
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: renci_internal   
+                ipv4:
+                  address: 192.168.201.12/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:201::12/64'
+                  gateway: '2001:db8:1234:201::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: renci_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: renci_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'renci_l3_v4' # Ansible management network
+          role: 'ben-renci'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+
+    node6:
+      name: duke-1
+      hostname: duke-1
+      site: KANS
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: duke_internal   
+                ipv4:
+                  address: 192.168.202.12/24  
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:202::12/64'
+                  gateway: '2001:db8:1234:202::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: duke_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: duke_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'duke_l3_v4' # Ansible management network
+          role: 'ben-duke'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+    node7:
+      name: ncsu-1
+      hostname: ncsu-1
+      site: PSC
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: ncsu_internal   
+                ipv4:
+                  address: 192.168.204.12/24  
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:204::12/64'
+                  gateway: '2001:db8:1234:204::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: ncsu_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: ncsu_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'ncsu_l3_v4' # Ansible management network
+          role: 'ben-ncsu'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+    node8:
+      name: unc-1
+      hostname: unc-1
+      site: MAX
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+
+          nic1:
+            name: nic1
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: unc_internal   
+                ipv4:
+                  address: 192.168.203.12/24  
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:203::12/64'
+                  gateway: '2001:db8:1234:203::1'
+                  dns: '2001:4860:4860::8888'
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: unc_l3_v4
+                ipv4: {}
+                ipv6: {}
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: unc_l3_v6
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'unc_l3_v4' # Ansible management network
+          role: 'ben-unc'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+
+site_topology_networks:
+  networks:
+    net1:
+      name: renci_duke
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 192.168.11.0/24
+          gateway: 192.168.11.1
+        ipv6:
+          address: '2001:db8:1234:11::/64'
+          gateway: '2001:db8:1234:11::1'
+    net2:
+      name: duke_ncsu
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 192.168.12.0/24
+          gateway: 192.168.12.1
+        ipv6:
+          address: '2001:db8:1234:12::/64'
+          gateway: '2001:db8:1234:12::1'
+    net3:
+      name: ncsu_unc
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 192.168.13.0/24
+          gateway: 192.168.13.1
+        ipv6:
+          address: '2001:db8:1234:13::/64'
+          gateway: '2001:db8:1234:13::1'
+    net4:
+      name: unc_renci
+      type: L2STS
+      subnet:
+        ipv4:
+          address: 192.168.14.0/24
+          gateway: 192.168.14.1
+        ipv6:
+          address: '2001:db8:1234:14::/64'
+          gateway: '2001:db8:1234:14::1'
+    net5:
+      name: renci_internal
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:201::/64'
+          gateway: '2001:db8:1234:201::1'
+    net6:
+      name: duke_internal
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
+        ipv6:
+          address: '2001:db8:1234:202::/64'
+          gateway: '2001:db8:1234:202::1'
+    net7:
+      name: unc_internal
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.203.0/24
+          gateway: 192.168.203.1
+        ipv6:
+          address: '2001:db8:1234:203::/64'
+          gateway: '2001:db8:1234:203::1'
+    net8:
+      name: ncsu_internal
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.204.0/24
+          gateway: 192.168.204.1
+        ipv6:
+          address: '2001:db8:1234:204::/64'
+          gateway: '2001:db8:1234:204::1'
+    net9:
+      name: renci_l3_v4
+      type: IPv4
+      subnet: {}
+    net10:
+      name: duke_l3_v4
+      type: IPv4
+      subnet: {}
+    net11:
+      name: unc_l3_v4
+      type: IPv4
+      subnet: {}
+    net12:
+      name: ncsu_l3_v4
+      type: IPv4
+      subnet: {}
+    net13:
+      name: renci_l3_v6
+      type: IPv6
+      subnet: {}
+    net14:
+      name: duke_l3_v6
+      type: IPv6
+      subnet: {}
+    net15:
+      name: unc_l3_v6
+      type: IPv6
+      subnet: {}
+    net16:
+      name: ncsu_l3_v6
+      type: IPv6
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

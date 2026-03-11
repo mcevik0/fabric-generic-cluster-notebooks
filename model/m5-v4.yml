@@ -1,0 +1,394 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 6
+# Total Networks: 3
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-10
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: l3-FABNetv4-1, IPv4: 
+#  ├─ OpenStack Roles: control
+#
+#📸 Node: lc-11
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: l3-FABNetv4-1, IPv4: 
+#  ├─ OpenStack Roles: compute, storage
+#
+#📸 Node: lc-20
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: l3-FABNetv4-2, IPv4: 
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-21
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: l3-FABNetv4-2, IPv4: 
+#  ├─ OpenStack Roles: compute, storage
+#
+#📸 Node: lc-30
+#  ├─ System:
+#      • OS: default_debian_12
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: l3-FABNetv4-3, IPv4: 
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-31
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: l3-FABNetv4-3, IPv4: 
+#  ├─ OpenStack Roles: compute, storage
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 l3-FABNetv4-1
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 l3-FABNetv4-2
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# 📡 l3-FABNetv4-3
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: l3-FABNetv4-1
+#    └── lc-10  (N/A)
+#    └── lc-11  (N/A)
+#
+# Network: l3-FABNetv4-2
+#    └── lc-20  (N/A)
+#    └── lc-21  (N/A)
+#
+# Network: l3-FABNetv4-3
+#    └── lc-30  (N/A)
+#    └── lc-31  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-10
+      hostname: lc-10
+      site: UCSD
+      worker: 'ucsd-w3.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv4-1
+                ipv4: {} 
+                ipv6: {} 
+      specific:
+        openstack:
+          control: 'true'
+          network: 'false'
+          compute: 'false'
+          storage: 'false'
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'l3-FABNetv4-1'  # Ansible management network
+          role: 'monitoring,compute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+
+    node2:
+      name: lc-20
+      hostname: lc-20
+      site: LOSA
+      worker: 'losa-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv4-2
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
+        ansible:
+          control: 'false'
+          management_network: 'l3-FABNetv4-2'  # Ansible management network
+          role: 'monitoring,compute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+          
+
+    node3:
+      name: lc-30
+      hostname: lc-30
+      site: SALT
+      worker: 'salt-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_debian_12 
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv4-3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'false'
+        ansible:
+          control: 'false'   # Ansible control node
+          management_network: 'l3-FABNetv4-3'  # Ansible management network
+          role: 'compute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: ''
+          
+
+    node4:
+      name: lc-11
+      hostname: lc-11
+      site: UCSD
+      worker: 'ucsd-w3.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv4-1
+                ipv4: {} 
+                ipv6: {} 
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
+        ansible:
+          control: 'false'
+          management_network: ''  # Ansible management network
+          role: 'compute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+          
+
+    node5:
+      name: lc-21
+      hostname: lc-21
+      site: LOSA
+      worker: 'losa-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv4-2
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
+        ansible:
+          control: 'false'
+          management_network: ''
+          role: 'compute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'disabled'
+          
+
+    node6:
+      name: lc-31
+      hostname: lc-31
+      site: SALT
+      worker: 'salt-w1.fabric-testbed.net'
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: l3-FABNetv4-3
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:
+          control: 'false'
+          network: 'false'
+          compute: 'true'
+          storage: 'true'
+        ansible:
+          control: 'false'
+          management_network: ''
+          role: 'compute'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'enforcing'
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: l3-FABNetv4-1
+      type: IPv4
+      subnet: {}
+    net2:
+      name: l3-FABNetv4-2
+      type: IPv4
+      subnet: {}
+    net3:
+      name: l3-FABNetv4-3
+      type: IPv4
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+

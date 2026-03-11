@@ -1,0 +1,321 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 3
+# Total Networks: 2
+#──────────────────────────────────────────────────────────────────────────────
+#
+#🔸 Node: lc-1
+#   Site: MAX | Resources: 4c/32G/100G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.211/24)
+#   └─ nic2.iface1 → net_local_2 (192.168.202.211/24)
+#   └─ dpu1.iface1 → net_local_1 (192.168.201.200/24)
+#   └─ fpga1.iface1 → net_local_1 (N/A)
+#   └─ fpga1.iface2 → net_local_2 (N/A)
+#
+#🔸 Node: lc-2
+#   Site: MAX | Resources: 2c/8G/10G
+#   OS: default_rocky_9
+#   └─ nic1.iface1 → net_local_1 (192.168.201.212/24)
+#
+#🔸 Node: lc-3
+#   Site: MAX | Resources: 2c/8G/10G
+#   OS: default_rocky_9
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net_local_1
+#    └── lc-1  (192.168.201.211/24)
+#    └── lc-2  (192.168.201.212/24)
+#
+# Network: net_local_2
+#    └── lc-1  (192.168.202.211/24)
+#
+
+site_topology_nodes:
+  nodes:
+    # VM node1 
+    node1:
+      name: lc-1  # Logical node name on the slice - required
+      hostname: lc-1  # Hostname of the VM - required
+      site: MAX  # FABRIC Testbed site where the node is provisioned - optional
+      worker: max-w1.fabric-testbed.net # Worker node that will be selected for the VM provisioning
+
+      # Hardware specifications of the VM
+      capacity:
+        cpu: 4  # Number of CPU cores - required
+        ram: 32  # RAM in GB - required
+        disk: 100  # Disk storage in GB - required
+        os: default_rocky_9  # Operating System - required
+
+      # Persistent storage volume(s)
+      persistent_storage:
+        volume:
+          # Volume volume1 - optional
+          volume1: 
+            name: FABRIC_Staff_1T # Volume name - optional
+            size: 1000 # Volume size - optional
+
+      # PCI devices connected to the node
+      # All supported device types are shown below
+      # All devices are optional 
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1 # Logical name of the device on the slice
+            model: NIC_ConnectX_7_100 # Supported types: NIC_ConnectX_7_100, NIC_ConnectX_7_400, NIC_BlueField2_ConnectX_6
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.200/24
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+              iface2:
+                device: eth5
+                connection: conn-eth5
+                binding: ''
+                ipv4:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+        fpga:
+          fpga1:
+            name: fpga1 # Logical name of the device on the slice
+            model: FPGA_Xilinx_U280  # Supported types: FPGA_Xilinx_U280
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_1
+                ipv4:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+              iface2:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_2
+                ipv4:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+        gpu:
+          gpu1:
+            name: rtx6000 # Logical name of the device on the slice
+            model: GPU_RTX6000  # Supported types: GPU_RTX6000, GPU_TeslaT4, GPU_A40, GPU_A30
+        nvme:
+          nvme1:
+            name: nvme1 # Logical name of the device on the slice
+            model: NVME_P4510  # Supported types: NVME_P4510
+        network:
+          # First NIC with one interface (eth1)
+          nic1:
+            name: nic1 # Logical name of the device on the slice
+            model: NIC_Basic  # Supported types: NIC_Basic, NIC_ConnectX_5, NIC_ConnectX_6
+            interfaces:
+              iface1:
+                device: eth1 # network device name
+                connection: conn-eth1 # network connection name in NetworkManager configuration
+                binding: net_local_1  # connected to the network that is defined on site_topology_networks dictionary
+                ipv4:
+                  address: 192.168.201.211/24  # IPv4 address with subnet mask - optional
+                  gateway: 192.168.201.1  # IPv4 address of the Default gateway - optional
+                  dns: 8.8.8.8  # IPv4 address of the DNS server - optional
+                ipv6:
+                  address: '' # IPv6 address - optional
+                  gateway: '' # IPv6 address of the default gateway - optional
+                  dns: '' # IPv6 address of the DNS server - optional
+          # Second NIC with two interfaces (eth2, eth3)
+          nic2:
+            name: nic2
+            model: NIC_ConnectX_6
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.211/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+              iface2:
+                device: eth3
+                connection: conn-eth3
+                binding: ''
+                ipv4:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+
+      # Custom roles - 
+      # Added for a prototype OpenStack environment
+      # This section will be re-visited for functionality
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+        
+    # VM node2
+    node2:
+      name: lc-2
+      hostname: lc-2
+      site: MAX
+      worker: ''
+
+      capacity:
+        cpu: 2
+        ram: 8
+        disk: 10
+        os: default_rocky_9
+
+      persistent_storage: 
+        volume: {} # No volume
+
+      pci:
+        gpu: {}  # No GPU
+        nvme: {}  # No NVMe
+        network:
+          nic1:
+            name: nic1
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth1
+                connection: conn-eth1
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.212/24
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+        
+    # VM node3
+    node3:
+      name: lc-3
+      hostname: lc-3
+      site: MAX
+      worker: ''
+
+      capacity:
+        cpu: 2
+        ram: 8
+        disk: 10
+        os: default_rocky_9
+
+      persistent_storage: 
+        volume: {}
+      
+      pci:
+        gpu: {}
+        nvme: {}
+        network: {}
+
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+          
+# Network definitions 
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1 # Logical name of the network on the slice
+      type: L2Bridge  # Supported types: L2Bridge, L2PTP, L2STS, IPv4, IPv6, IPv4Ext, IPv6Ext
+      subnet: # Subnet configuration
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net2:
+      name: net_local_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports:
+    fp1:
+      name: 'SENSE-MGHPCC'
+      site: MASS
+      vlan: 3919
+      binding: net_local_1
+    fp2:
+      name: 'AmLight-EXP-Layer2-FIU'
+      site: FIU
+      vlan: 4016
+      binding: net_local_2
+

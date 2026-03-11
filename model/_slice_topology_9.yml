@@ -1,0 +1,158 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 2
+# Total Networks: 1
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: Node1
+#  ├─ System:
+#      • OS: dpu_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
+#    └─ Interface: iface1, Binding: net1, IPv4: 
+#    └─ Interface: iface2, Binding: net1, IPv4: 
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: Node2
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net1, IPv4: 
+#  ├─ OpenStack Roles: compute
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 net1
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 2
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net1
+#    └── Node1  (N/A)
+#    └── Node2  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: Node1             
+      hostname: Node1          
+      site: ATLA
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: dpu_ubuntu_24  
+      persistent_storage: 
+        volume: {}
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1
+            model: NIC_ConnectX_7_100
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net1
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net1
+                ipv4: {}
+                ipv6: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network: {}
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: ''  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+        
+    node2:
+      name: Node2             
+      hostname: Node2         
+      site: ATLA
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net1
+                ipv4: {}
+                ipv6: {}
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net1
+      type: IPv4
+      subnet: {}
+
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
