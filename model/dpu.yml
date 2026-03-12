@@ -1,0 +1,266 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 3
+# Total Networks: 4
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_400)
+#    └─ Interface: iface1, Binding: fabnetv4_1, IPv4: 
+#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.200/24, IPv6: 2001:db8:1234:1::200/64
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_400)
+#    └─ Interface: iface1, Binding: fabnetv4_2, IPv4: 
+#    └─ Interface: iface2, Binding: net_local_1, IPv4: 192.168.201.201/24, IPv6: 2001:db8:1234:1::201/64
+#
+#📸 Node: lc-3
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
+#    └─ Interface: iface1, Binding: fabnetv4_3, IPv4: 
+#    └─ Interface: iface2, Binding: , IPv4: 
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 net_local_1
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.201.0/24, IPv6: 2001:db8:1234:1::/64
+#    Gateway: IPv4: 192.168.201.1, IPv6: 2001:db8:1234:1::1
+#    Connected Nodes: 2
+#
+# 📡 fabnetv4_1
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# 📡 fabnetv4_2
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# 📡 fabnetv4_3
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net_local_1
+#    └── lc-1  (192.168.201.200/24)
+#    └── lc-2  (192.168.201.201/24)
+#
+# Network: fabnetv4_1
+#    └── lc-1  (N/A)
+#
+# Network: fabnetv4_2
+#    └── lc-2  (N/A)
+#
+# Network: fabnetv4_3
+#    └── lc-3  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: WASH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1       
+            model: NIC_ConnectX_7_400
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4_1
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth2           
+                connection: conn-eth2  
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.200/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::200/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'fabnetv4_1'  # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+    node2:
+      name: lc-2
+      hostname: lc-2
+      site: SALT
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9  
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1       
+            model: NIC_ConnectX_7_400
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4_2
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth2           
+                connection: conn-eth2  
+                binding: net_local_1
+                ipv4:
+                  address: 192.168.201.201/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: '2001:db8:1234:1::201/64'
+                  gateway: '2001:db8:1234:1::1'
+                  dns: '2001:4860:4860::8888'        
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'fabnetv4_2'  # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+    node3:
+      name: lc-3
+      hostname: lc-3
+      site: MICH
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1       
+            model: NIC_ConnectX_7_100
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4_3
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth2           
+                connection: conn-eth2  
+                binding: ''
+                ipv4: {}
+                ipv6: {}    
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'fabnetv4'  # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+          
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: '2001:db8:1234:1::/64'
+          gateway: '2001:db8:1234:1::1'
+    net2:
+      name: fabnetv4_1
+      type: IPv4
+      subnet: {}
+    net3:
+      name: fabnetv4_2
+      type: IPv4
+      subnet: {}
+    net4:
+      name: fabnetv4_3
+      type: IPv4
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
