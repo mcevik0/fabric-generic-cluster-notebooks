@@ -88,3 +88,11 @@ The `MANUAL_DEPLOYMENT` flag controls execution path:
 ### Slice name uniqueness
 
 `sd.check_or_generate_unique_slice_name(name, use_timestamp)` queries existing FABRIC slices and appends a suffix if the name is taken. Always use this before deploying.
+
+## Workflow
+
+All code changes must be made on a new branch, not directly on `main`. For every change:
+1. Create a new branch
+2. Make the changes and commit
+3. Push the branch and open a PR
+4. Merge the PR into `main`
