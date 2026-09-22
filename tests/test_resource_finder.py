@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
+from unittest.mock import Mock
 
 from IPython.core.inputtransformer2 import TransformerManager
 import nbformat
@@ -110,6 +111,34 @@ class OfflineManager:
 
 
 class ResourceFinderNotebooks(unittest.TestCase):
+    def test_export_example_is_opt_in(self):
+        for path in NOTEBOOKS:
+            with self.subTest(notebook=path.name):
+                examples = [
+                    "".join(cell["source"])
+                    for cell in notebook_cells(path)
+                    if cell["cell_type"] == "code"
+                    and "# Uncomment to export" in "".join(cell["source"])
+                ]
+                self.assertEqual(len(examples), 1)
+                source = examples[0]
+                commented_call = "# export_site_availability(fablib)"
+                self.assertIn("# Uncomment to export\n" + commented_call, source)
+                self.assertEqual(source.count(commented_call), 1)
+
+                exporter = Mock()
+                manager = object()
+                namespace = {
+                    "export_site_availability": exporter,
+                    "fablib": manager,
+                }
+                exec(compile(source, str(path), "exec"), namespace)
+                exporter.assert_not_called()
+
+                uncommented = source.replace(commented_call, commented_call[2:], 1)
+                exec(compile(uncommented, str(path), "exec"), namespace)
+                exporter.assert_called_once_with(manager)
+
     def test_json_schema_and_python_syntax(self):
         self.assertEqual(len(NOTEBOOKS), 2)
         for path in NOTEBOOKS:
