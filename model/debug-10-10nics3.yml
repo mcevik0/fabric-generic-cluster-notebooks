@@ -1,0 +1,2535 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 10
+# Total Networks: 10
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_ubuntu_20
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.211/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.211/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.211/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.211/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.211/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.211/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.211/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.211/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.211/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.211/24
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: lc-10
+#  ├─ System:
+#      • OS: docker_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.220/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.220/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.220/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.220/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.220/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.220/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.220/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.220/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.220/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.220/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-2
+#  ├─ System:
+#      • OS: default_ubuntu_22
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.212/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.212/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.212/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.212/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.212/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.212/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.212/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.212/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.212/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.212/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-3
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.213/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.213/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.213/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.213/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.213/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.213/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.213/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.213/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.213/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.213/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-4
+#  ├─ System:
+#      • OS: default_rocky_8
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.214/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.214/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.214/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.214/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.214/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.214/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.214/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.214/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.214/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.214/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-5
+#  ├─ System:
+#      • OS: default_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.215/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.215/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.215/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.215/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.215/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.215/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.215/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.215/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.215/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.215/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-6
+#  ├─ System:
+#      • OS: default_rocky_10
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.216/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.216/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.216/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.216/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.216/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.216/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.216/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.216/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.216/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.216/24
+#  ├─ OpenStack Roles: control, network, storage
+#
+#📸 Node: lc-7
+#  ├─ System:
+#      • OS: docker_rocky_9
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.217/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.217/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.217/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.217/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.217/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.217/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.217/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.217/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.217/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.217/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-8
+#  ├─ System:
+#      • OS: docker_rocky_10
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.218/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.218/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.218/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.218/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.218/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.218/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.218/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.218/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.218/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.218/24
+#  ├─ OpenStack Roles: compute
+#
+#📸 Node: lc-9
+#  ├─ System:
+#      • OS: docker_ubuntu_22
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ NIC: nic1 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_1, IPv4: 192.168.201.219/24
+#  ├─ NIC: nic10 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_10, IPv4: 192.168.210.219/24
+#  ├─ NIC: nic2 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_2, IPv4: 192.168.202.219/24
+#  ├─ NIC: nic3 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_3, IPv4: 192.168.203.219/24
+#  ├─ NIC: nic4 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_4, IPv4: 192.168.204.219/24
+#  ├─ NIC: nic5 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_5, IPv4: 192.168.205.219/24
+#  ├─ NIC: nic6 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_6, IPv4: 192.168.206.219/24
+#  ├─ NIC: nic7 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_7, IPv4: 192.168.207.219/24
+#  ├─ NIC: nic8 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_8, IPv4: 192.168.208.219/24
+#  ├─ NIC: nic9 (NIC_Basic)
+#    └─ Interface: iface1, Binding: net_local_9, IPv4: 192.168.209.219/24
+#  ├─ OpenStack Roles: compute
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 net_local_1
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.201.0/24
+#    Gateway: IPv4: 192.168.201.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_2
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.202.0/24
+#    Gateway: IPv4: 192.168.202.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_3
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.203.0/24
+#    Gateway: IPv4: 192.168.203.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_4
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.204.0/24
+#    Gateway: IPv4: 192.168.204.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_5
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.205.0/24
+#    Gateway: IPv4: 192.168.205.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_6
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.206.0/24
+#    Gateway: IPv4: 192.168.206.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_7
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.207.0/24
+#    Gateway: IPv4: 192.168.207.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_8
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.208.0/24
+#    Gateway: IPv4: 192.168.208.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_9
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.209.0/24
+#    Gateway: IPv4: 192.168.209.1
+#    Connected Nodes: 10
+#
+# 📡 net_local_10
+#    Type: L2Bridge
+#    Subnet: IPv4: 192.168.210.0/24
+#    Gateway: IPv4: 192.168.210.1
+#    Connected Nodes: 10
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: net_local_1
+#    └── lc-1  (192.168.201.211/24)
+#    └── lc-2  (192.168.201.212/24)
+#    └── lc-3  (192.168.201.213/24)
+#    └── lc-4  (192.168.201.214/24)
+#    └── lc-5  (192.168.201.215/24)
+#    └── lc-6  (192.168.201.216/24)
+#    └── lc-7  (192.168.201.217/24)
+#    └── lc-8  (192.168.201.218/24)
+#    └── lc-9  (192.168.201.219/24)
+#    └── lc-10  (192.168.201.220/24)
+#
+# Network: net_local_2
+#    └── lc-1  (192.168.202.211/24)
+#    └── lc-2  (192.168.202.212/24)
+#    └── lc-3  (192.168.202.213/24)
+#    └── lc-4  (192.168.202.214/24)
+#    └── lc-5  (192.168.202.215/24)
+#    └── lc-6  (192.168.202.216/24)
+#    └── lc-7  (192.168.202.217/24)
+#    └── lc-8  (192.168.202.218/24)
+#    └── lc-9  (192.168.202.219/24)
+#    └── lc-10  (192.168.202.220/24)
+#
+# Network: net_local_3
+#    └── lc-1  (192.168.203.211/24)
+#    └── lc-2  (192.168.203.212/24)
+#    └── lc-3  (192.168.203.213/24)
+#    └── lc-4  (192.168.203.214/24)
+#    └── lc-5  (192.168.203.215/24)
+#    └── lc-6  (192.168.203.216/24)
+#    └── lc-7  (192.168.203.217/24)
+#    └── lc-8  (192.168.203.218/24)
+#    └── lc-9  (192.168.203.219/24)
+#    └── lc-10  (192.168.203.220/24)
+#
+# Network: net_local_4
+#    └── lc-1  (192.168.204.211/24)
+#    └── lc-2  (192.168.204.212/24)
+#    └── lc-3  (192.168.204.213/24)
+#    └── lc-4  (192.168.204.214/24)
+#    └── lc-5  (192.168.204.215/24)
+#    └── lc-6  (192.168.204.216/24)
+#    └── lc-7  (192.168.204.217/24)
+#    └── lc-8  (192.168.204.218/24)
+#    └── lc-9  (192.168.204.219/24)
+#    └── lc-10  (192.168.204.220/24)
+#
+# Network: net_local_5
+#    └── lc-1  (192.168.205.211/24)
+#    └── lc-2  (192.168.205.212/24)
+#    └── lc-3  (192.168.205.213/24)
+#    └── lc-4  (192.168.205.214/24)
+#    └── lc-5  (192.168.205.215/24)
+#    └── lc-6  (192.168.205.216/24)
+#    └── lc-7  (192.168.205.217/24)
+#    └── lc-8  (192.168.205.218/24)
+#    └── lc-9  (192.168.205.219/24)
+#    └── lc-10  (192.168.205.220/24)
+#
+# Network: net_local_6
+#    └── lc-1  (192.168.206.211/24)
+#    └── lc-2  (192.168.206.212/24)
+#    └── lc-3  (192.168.206.213/24)
+#    └── lc-4  (192.168.206.214/24)
+#    └── lc-5  (192.168.206.215/24)
+#    └── lc-6  (192.168.206.216/24)
+#    └── lc-7  (192.168.206.217/24)
+#    └── lc-8  (192.168.206.218/24)
+#    └── lc-9  (192.168.206.219/24)
+#    └── lc-10  (192.168.206.220/24)
+#
+# Network: net_local_7
+#    └── lc-1  (192.168.207.211/24)
+#    └── lc-2  (192.168.207.212/24)
+#    └── lc-3  (192.168.207.213/24)
+#    └── lc-4  (192.168.207.214/24)
+#    └── lc-5  (192.168.207.215/24)
+#    └── lc-6  (192.168.207.216/24)
+#    └── lc-7  (192.168.207.217/24)
+#    └── lc-8  (192.168.207.218/24)
+#    └── lc-9  (192.168.207.219/24)
+#    └── lc-10  (192.168.207.220/24)
+#
+# Network: net_local_8
+#    └── lc-1  (192.168.208.211/24)
+#    └── lc-2  (192.168.208.212/24)
+#    └── lc-3  (192.168.208.213/24)
+#    └── lc-4  (192.168.208.214/24)
+#    └── lc-5  (192.168.208.215/24)
+#    └── lc-6  (192.168.208.216/24)
+#    └── lc-7  (192.168.208.217/24)
+#    └── lc-8  (192.168.208.218/24)
+#    └── lc-9  (192.168.208.219/24)
+#    └── lc-10  (192.168.208.220/24)
+#
+# Network: net_local_9
+#    └── lc-1  (192.168.209.211/24)
+#    └── lc-2  (192.168.209.212/24)
+#    └── lc-3  (192.168.209.213/24)
+#    └── lc-4  (192.168.209.214/24)
+#    └── lc-5  (192.168.209.215/24)
+#    └── lc-6  (192.168.209.216/24)
+#    └── lc-7  (192.168.209.217/24)
+#    └── lc-8  (192.168.209.218/24)
+#    └── lc-9  (192.168.209.219/24)
+#    └── lc-10  (192.168.209.220/24)
+#
+# Network: net_local_10
+#    └── lc-1  (192.168.210.211/24)
+#    └── lc-2  (192.168.210.212/24)
+#    └── lc-3  (192.168.210.213/24)
+#    └── lc-4  (192.168.210.214/24)
+#    └── lc-5  (192.168.210.215/24)
+#    └── lc-6  (192.168.210.216/24)
+#    └── lc-7  (192.168.210.217/24)
+#    └── lc-8  (192.168.210.218/24)
+#    └── lc-9  (192.168.210.219/24)
+#    └── lc-10  (192.168.210.220/24)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: TACC
+      worker: tacc-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_20
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.211/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.211/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.211/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.211/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.211/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.211/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.211/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.211/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.211/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.211/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+    node2:
+      name: lc-2              
+      hostname: lc-2          
+      site: TACC
+      worker: tacc-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_22
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.212/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.212/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.212/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.212/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.212/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.212/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.212/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.212/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.212/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.212/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node3:
+      name: lc-3
+      hostname: lc-3
+      site: TACC
+      worker: tacc-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.213/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.213/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.213/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.213/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.213/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.213/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.213/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.213/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.213/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.213/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node4:
+      name: lc-4
+      hostname: lc-4
+      site: TACC
+      worker: tacc-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_8
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.214/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.214/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.214/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.214/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.214/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.214/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.214/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.214/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.214/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.214/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node5:
+      name: lc-5
+      hostname: lc-5
+      site: TACC
+      worker: tacc-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.215/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.215/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.215/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.215/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.215/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.215/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.215/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.215/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.215/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.215/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+
+    node6:
+      name: lc-6
+      hostname: lc-6
+      site: TACC
+      worker: tacc-w5.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_rocky_10
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.216/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.216/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.216/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.216/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.216/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.216/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.216/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.216/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.216/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.216/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+    node7:
+      name: lc-7
+      hostname: lc-7
+      site: TACC
+      worker: tacc-w5.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: docker_rocky_9
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.217/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.217/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.217/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.217/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.217/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.217/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.217/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.217/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.217/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.217/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node8:
+      name: lc-8
+      hostname: lc-8
+      site: TACC
+      worker: tacc-w5.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: docker_rocky_10
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.218/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.218/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.218/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.218/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.218/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.218/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.218/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.218/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.218/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.218/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node9:
+      name: lc-9
+      hostname: lc-9
+      site: TACC
+      worker: tacc-w5.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: docker_ubuntu_22
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.219/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.219/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.219/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.219/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.219/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.219/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.219/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.219/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.219/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.219/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node10:
+      name: lc-10
+      hostname: lc-10
+      site: TACC
+      worker: tacc-w5.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: docker_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.220/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.220/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic3:
+            name: nic3
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth3
+                connection: conn-eth3
+                binding: net_local_3
+                ipv4:
+                  address: 192.168.203.220/24
+                  gateway: 192.168.203.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic4:
+            name: nic4
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth4
+                connection: conn-eth4
+                binding: net_local_4
+                ipv4:
+                  address: 192.168.204.220/24
+                  gateway: 192.168.204.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic5:
+            name: nic5
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth5
+                connection: conn-eth5
+                binding: net_local_5
+                ipv4:
+                  address: 192.168.205.220/24
+                  gateway: 192.168.205.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic6:
+            name: nic6
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth6
+                connection: conn-eth6
+                binding: net_local_6
+                ipv4:
+                  address: 192.168.206.220/24
+                  gateway: 192.168.206.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic7:
+            name: nic7
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth7
+                connection: conn-eth7
+                binding: net_local_7
+                ipv4:
+                  address: 192.168.207.220/24
+                  gateway: 192.168.207.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic8:
+            name: nic8
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth8
+                connection: conn-eth8
+                binding: net_local_8
+                ipv4:
+                  address: 192.168.208.220/24
+                  gateway: 192.168.208.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic9:
+            name: nic9
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth9
+                connection: conn-eth9
+                binding: net_local_9
+                ipv4:
+                  address: 192.168.209.220/24
+                  gateway: 192.168.209.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+          nic10:
+            name: nic10
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth10
+                connection: conn-eth10
+                binding: net_local_10
+                ipv4:
+                  address: 192.168.210.220/24
+                  gateway: 192.168.210.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net2:
+      name: net_local_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net3:
+      name: net_local_3
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.203.0/24
+          gateway: 192.168.203.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net4:
+      name: net_local_4
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.204.0/24
+          gateway: 192.168.204.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net5:
+      name: net_local_5
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.205.0/24
+          gateway: 192.168.205.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net6:
+      name: net_local_6
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.206.0/24
+          gateway: 192.168.206.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net7:
+      name: net_local_7
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.207.0/24
+          gateway: 192.168.207.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net8:
+      name: net_local_8
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.208.0/24
+          gateway: 192.168.208.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net9:
+      name: net_local_9
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.209.0/24
+          gateway: 192.168.209.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net10:
+      name: net_local_10
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.210.0/24
+          gateway: 192.168.210.1
+        ipv6:
+          address: ''
+          gateway: ''
+
+
