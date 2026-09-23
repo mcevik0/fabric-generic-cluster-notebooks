@@ -1,0 +1,770 @@
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.211/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.211/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+    node2:
+      name: lc-2              
+      hostname: lc-2          
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.212/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.212/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node3:
+      name: lc-3
+      hostname: lc-3
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.213/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.213/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node4:
+      name: lc-4
+      hostname: lc-4
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.214/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.214/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node5:
+      name: lc-5
+      hostname: lc-5
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.215/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.215/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+
+    node6:
+      name: lc-6
+      hostname: lc-6
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.216/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.216/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'true'    # Control plane node [STRING: 'true' or 'false']
+          network: 'true'    # Network services node
+          compute: 'false'   # Compute node (hypervisor)
+          storage: 'true'    # Storage services node
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+    node7:
+      name: lc-7
+      hostname: lc-7
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.217/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.217/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node8:
+      name: lc-8
+      hostname: lc-8
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.218/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.218/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node9:
+      name: lc-9
+      hostname: lc-9
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.219/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.219/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+    node10:
+      name: lc-10
+      hostname: lc-10
+      site: SALT
+      worker: salt-w3.fabric-testbed.net
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_25
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network:
+          nic1:
+            name: nic1       
+            model: NIC_Basic 
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: net_local_1   
+                ipv4:
+                  address: 192.168.201.220/24  
+                  gateway: 192.168.201.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: '' 
+          nic2:
+            name: nic2
+            model: NIC_Basic
+            interfaces:
+              iface1:
+                device: eth2
+                connection: conn-eth2
+                binding: net_local_2
+                ipv4:
+                  address: 192.168.202.220/24
+                  gateway: 192.168.202.1
+                  dns: 8.8.8.8
+                ipv6:
+                  address: ''
+                  gateway: ''
+                  dns: ''
+      specific:
+        openstack:           # OpenStack role assignments
+          control: 'false'    # Control plane node [STRING: 'true' or 'false']
+          network: 'false'    # Network services node
+          compute: 'true'   # Compute node (hypervisor)
+          storage: 'false'    # Storage services node
+        ansible:
+          control: 'false'   # Managed node
+          management_network: 'net_local_1'  # Ansible management network
+          role: 'webserver'
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+
+
+
+
+
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: net_local_1
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.201.0/24
+          gateway: 192.168.201.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net2:
+      name: net_local_2
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.202.0/24
+          gateway: 192.168.202.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net3:
+      name: net_local_3
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.203.0/24
+          gateway: 192.168.203.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net4:
+      name: net_local_4
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.204.0/24
+          gateway: 192.168.204.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net5:
+      name: net_local_5
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.205.0/24
+          gateway: 192.168.205.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net6:
+      name: net_local_6
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.206.0/24
+          gateway: 192.168.206.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net7:
+      name: net_local_7
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.207.0/24
+          gateway: 192.168.207.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net8:
+      name: net_local_8
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.208.0/24
+          gateway: 192.168.208.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net9:
+      name: net_local_9
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.209.0/24
+          gateway: 192.168.209.1
+        ipv6:
+          address: ''
+          gateway: ''
+    net10:
+      name: net_local_10
+      type: L2Bridge
+      subnet:
+        ipv4:
+          address: 192.168.210.0/24
+          gateway: 192.168.210.1
+        ipv6:
+          address: ''
+          gateway: ''
+
+

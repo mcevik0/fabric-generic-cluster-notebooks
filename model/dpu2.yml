@@ -1,0 +1,110 @@
+# Topology Summary (Auto-Generated)
+#──────────────────────────────────────────────────────────────────────────────
+#
+# Total Nodes: 1
+# Total Networks: 2
+#──────────────────────────────────────────────────────────────────────────────
+#
+#📸 Node: lc-1
+#  ├─ System:
+#      • OS: default_ubuntu_24
+#      • CPU: 4 vCPU
+#      • RAM: 16 GB
+#      • Disk: 10 GB
+#      • Persistent Storage: {}
+#  ├─ DPU: dpu1 (NIC_ConnectX_7_100)
+#    └─ Interface: iface1, Binding: fabnetv4_1, IPv4: 
+#    └─ Interface: iface2, Binding: fabnetv4_2, IPv4: 
+#
+#
+# Network Summary
+#──────────────────────────────────────────────────────────────────────────────
+# 📡 fabnetv4_1
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# 📡 fabnetv4_2
+#    Type: IPv4
+#    Subnet: Managed by orchestrator (IPs auto-assigned)
+#    Gateway: Managed by orchestrator
+#    Connected Nodes: 1
+#
+# ASCII Topology Diagram
+#──────────────────────────────────────────────────────────────────────────────
+# Network: fabnetv4_1
+#    └── lc-1  (N/A)
+#
+# Network: fabnetv4_2
+#    └── lc-1  (N/A)
+#
+#
+
+
+site_topology_nodes:
+  nodes:
+    node1:
+      name: lc-1              
+      hostname: lc-1          
+      site: SEAT
+      worker: ''
+      capacity:
+        cpu: 4                
+        ram: 16              
+        disk: 10             
+        os: default_ubuntu_24
+      persistent_storage:
+        volume: {}
+      pci:
+        dpu:
+          dpu1:
+            name: dpu1       
+            model: NIC_ConnectX_7_100
+            interfaces:
+              iface1:
+                device: eth1           
+                connection: conn-eth1  
+                binding: fabnetv4_1
+                ipv4: {}
+                ipv6: {}
+              iface2:
+                device: eth2           
+                connection: conn-eth2  
+                binding: fabnetv4_2
+                ipv4: {}
+                ipv6: {}
+        fpga: {}
+        gpu: {}
+        nvme: {}
+        network: {}
+      specific:
+        openstack: {}
+        ansible:
+          control: 'true'   # Ansible control node
+          management_network: 'fabnetv4_1'  # Ansible management network
+          role: ''
+        postboot: 'echo "--- postboot commands completed." > /tmp/postboot.txt'
+        selinux: 
+          mode: 'permissive'
+      
+# ==============================================================================
+# NETWORKS CONFIGURATION
+# ==============================================================================
+# Define Layer 2/3 networks that connect nodes together
+#
+site_topology_networks:
+  networks:
+    net1:
+      name: fabnetv4_1
+      type: IPv4
+      subnet: {}
+    net2:
+      name: fabnetv4_2
+      type: IPv4
+      subnet: {}
+
+# Facility Port definitions 
+site_topology_facility_ports:
+  facility_ports: {}
+
