@@ -4,7 +4,7 @@
 
 This repository contains Jupyter notebooks and YAML model files used to define and run FABRIC Testbed experiments.
 
-When working with topology model files, Codex should use the existing repository contents as the primary source of truth for structure, conventions, and supported patterns.
+When working with topology model files, Codex should use the existing repository contents as the primary source for repository conventions and established patterns, subject to the current library/schema behavior and the user's requested topology.
 
 ## Repository Scope
 
@@ -50,22 +50,23 @@ Before creating a new YAML topology file:
 
 Do not invent new fields, structures, component names, or schema elements merely because they appear plausible.
 
-If the requested feature is not represented in the existing models, inspect the repository code or current project schema before introducing a new representation.
+If the requested feature is not represented in the existing models, or fields or structures are uncertain, inspect the repository code and the current `fabric-generic-cluster` model/schema implementation (`fabric_generic_cluster/models.py`) before introducing a new representation.
 
-## Existing Models Are Authoritative Examples
+## Existing Models as Primary References
 
-Treat files already present under `model/` as repository-local reference implementations.
+Treat files already present under `model/` as primary references for repository conventions and established patterns. Do not blindly copy stale, inconsistent, or experiment-specific values, or reproduce known errors. If an example conflicts with the current `fabric-generic-cluster` schema/library behavior or the user's requested topology, resolve the inconsistency rather than reproducing it.
 
 When generating a topology:
 
 - follow existing naming conventions;
-- preserve the style of neighboring YAML files;
+- preserve the style and formatting of neighboring YAML files;
 - reuse established FABRIC component identifiers;
 - reuse established image names where appropriate;
-- use existing node and network structures;
-- maintain consistent formatting.
+- reuse compatible node and network structures.
 
 Repository-local examples take precedence over generic examples from model knowledge.
+
+Copy only configuration relevant to the requested topology. Do not automatically inherit worker placement, application roles, postboot commands, SELinux settings, management-network values, or other unrelated experiment configuration from a reference model.
 
 ## File Creation
 
@@ -73,7 +74,7 @@ Unless the user specifies a filename:
 
 - choose a short, descriptive lowercase filename;
 - use hyphens or the naming convention already established under `model/`;
-- use the `.yaml` extension if that is the repository convention.
+- use the `.yml` extension, following the existing topology models.
 
 Do not overwrite an existing topology file unless explicitly requested.
 
@@ -102,10 +103,10 @@ When the user explicitly specifies FABRIC sites, preserve those site constraints
 
 When the user does not specify sites:
 
-- do not arbitrarily hard-code a site unless existing repository behavior requires it;
-- preserve the repository's existing approach to site selection.
+- do not inherit a reference model's site pinning unless required by the intended topology;
+- check the current library's support for omitted or empty site values for automatic site selection, even when existing examples specify sites explicitly.
 
-If site selection affects the topology structure, explain the assumption before or after making the change.
+Preserve placement constraints required by the intended topology. For unresolved placement choices that materially affect the topology, follow the ambiguity guidance below.
 
 ## Networks
 
@@ -124,17 +125,9 @@ Do not invent a new network representation when an equivalent established patter
 
 ## Analysis-Only Requests
 
-If the user asks to:
+If the user asks only for review, analysis, inspection, explanation, comparison, recommendations, or identification of a suitable model, do not modify files.
 
-- review,
-- analyze,
-- inspect,
-- explain,
-- compare,
-- recommend,
-- identify a suitable model,
-
-do not modify files.
+A prompt such as "review and fix this topology" includes an explicit implementation request and authorizes the requested edits. Words such as "review" or "analyze" do not override an explicit request to modify files.
 
 For analysis-only requests, report:
 
@@ -143,7 +136,7 @@ For analysis-only requests, report:
 - potential issues;
 - recommended implementation approach.
 
-Wait for an explicit implementation request before changing files.
+For analysis-only requests, wait for an explicit implementation request before changing files.
 
 ## Modification Requests
 
@@ -160,36 +153,55 @@ Do not redesign unrelated repository structures.
 
 ## Validation
 
-After creating or modifying YAML files, validate them before reporting completion.
+After creating or modifying YAML files, validate the changed files first, including newly created files, before reporting completion. Select files explicitly rather than blindly scanning all models; accept both `.yml` and `.yaml` where applicable, and fail visibly if no files were selected. Report unrelated pre-existing failures from any broader checks separately from failures caused by the current change.
 
 At minimum:
 
 1. verify that the YAML parses successfully;
 2. check indentation and YAML structure;
 3. check for duplicate or malformed keys where practical;
-4. compare the resulting structure against similar existing model files.
+4. compare the resulting structure against relevant existing patterns and the current library/schema.
 
-Use repository-provided validation tools or tests when available.
+`yaml.safe_load` does not detect duplicate mapping keys. If checking for duplicates, use an additional check such as a YAML linter configured to reject duplicate keys or a custom loader that rejects them.
 
-If an appropriate Python YAML parser is available, a syntax check similar to the following is acceptable:
+If an appropriate Python YAML parser is available, the following checks syntax for explicitly selected files. Replace the example path with the actual changed model paths; multiple `.yml` or `.yaml` paths may be passed:
 
 ```bash
-python - <<'PY'
+python - model/rocky9-4node-smartnic.yml <<'PY'
 import pathlib
+import sys
 import yaml
 
-for path in pathlib.Path("model").glob("*.yaml"):
+paths = [pathlib.Path(arg) for arg in sys.argv[1:]]
+if not paths:
+    raise SystemExit("No model files selected; pass changed .yml or .yaml paths.")
+
+for path in paths:
+    if path.suffix not in {".yml", ".yaml"} or not path.is_file():
+        raise SystemExit(f"Invalid model file: {path}")
     with path.open() as f:
         yaml.safe_load(f)
-    print(f"OK: {path}")
+    print(f"YAML syntax OK: {path}")
 PY
 ```
 
+Use repository-provided validation tools or relevant model-parsing tests when available. Where practical, load changed files with `fabric_generic_cluster.load_topology_from_yaml_file` for library/schema validation, consulting the current model/schema implementation to resolve uncertain fields or structures.
+
+Also perform basic semantic checks where practical:
+
+- node names are unique;
+- network names are unique;
+- interface/network bindings reference declared networks;
+- management-network references identify declared networks bound to interfaces on the corresponding node;
+- static addressing is internally consistent, including address families, prefixes, subnets, gateways, and duplicate addresses within a network.
+
+These checks supplement YAML syntax validation; neither syntax, schema loading, nor semantic checks prove that FABRIC deployment will succeed.
+
 Do not install new dependencies solely for validation unless explicitly requested.
 
-If repository tests cover model parsing or topology loading, run the relevant tests when practical.
-
 ## Validation Boundaries
+
+Generating or validating a YAML topology does not authorize submitting a FABRIC slice. Do not run deployment notebooks or deployment actions merely as validation. Slice creation, submission, modification, or deletion requires an explicit user request.
 
 Do not claim that a topology has been successfully deployed to FABRIC unless it was actually submitted and verified against FABRIC.
 
@@ -217,11 +229,11 @@ For example:
 
 ```text
 Created:
-  model/rocky9-4node-smartnic.yaml
+  model/rocky9-4node-smartnic.yml
 
 References:
-  model/example-a.yaml
-  model/example-b.yaml
+  model/example-a.yml
+  model/example-b.yml
 
 Topology:
   - 4 Rocky Linux 9 nodes
@@ -261,7 +273,7 @@ Examples include:
 
 Avoid asking for clarification when an existing repository convention provides a reasonable answer.
 
-If an ambiguity materially changes the topology semantics, identify the assumption in the final summary.
+If an ambiguity materially changes placement, connectivity, or requested experiment behavior and cannot be resolved from repository conventions and current library behavior, surface it to the user before implementing the affected part rather than silently choosing a materially different topology. Report any minor assumptions in the final summary.
 
 ## Recommended Workflow
 
@@ -273,7 +285,7 @@ For topology-generation tasks, use this sequence:
 3. Understand requested topology
 4. Reuse established repository patterns
 5. Create the new YAML file
-6. Validate YAML
+6. Validate changed YAML files and check topology semantics
 7. Run relevant repository checks when available
 8. Review the diff
 9. Report references, assumptions, and validation
@@ -294,4 +306,4 @@ Therefore:
 
 When generating FABRIC topology models:
 
-> Use the repository's existing models as the authoritative examples, make the smallest necessary change, and validate the resulting YAML before reporting completion.
+> Use existing models as primary references for conventions and established patterns, resolve conflicts with current library behavior and the requested topology, make the smallest necessary change, and validate changed files before reporting completion.
