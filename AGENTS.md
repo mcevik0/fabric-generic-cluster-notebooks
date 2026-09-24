@@ -123,6 +123,19 @@ When defining FABRIC network services:
 
 Do not invent a new network representation when an equivalent established pattern exists.
 
+## Network Addressing and Interface Inference
+
+When generating network configuration from existing topology models:
+
+- infer repository conventions for interface names, NIC names, connection names, device names, bindings, and network-service structure from the closest existing examples;
+- do not blindly copy experiment-specific IP addresses, subnets, gateways, DNS settings, site assignments, or other topology-specific values;
+- when IP addressing is not explicitly provided, inspect existing models for established addressing conventions and choose a consistent private addressing scheme only when that is appropriate for the requested topology;
+- ensure generated IP addresses are unique, belong to the intended subnet, and are internally consistent with interface and network bindings;
+- report any inferred addressing scheme in the final summary;
+- if addressing, placement, or connectivity is materially ambiguous, surface the ambiguity rather than silently copying values from a reference model.
+
+Existing model files should guide how network configuration is represented, but their literal address values should not be treated as defaults unless the request or repository convention clearly makes them reusable.
+
 ## Analysis-Only Requests
 
 If the user asks only for review, analysis, inspection, explanation, comparison, recommendations, or identification of a suitable model, do not modify files.
